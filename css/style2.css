@@ -4,16 +4,24 @@ html {
    *, *:before, *:after {
     box-sizing: inherit;
   }
+
  body{
     background-image: url("../images/bg.jpg");
     background-size: cover;
     max-width: 100%;
     max-height: 100%;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+ }
+ #container-logo {
+   margin-bottom: 15rem;
  }
  #container-logo img{
-    max-width: 20%;
-    max-height: 20%;
-    margin-left: 4rem;
+    max-width: 15%;
+    max-height: 15%;
+    margin-left: 3rem;
     margin-top: 2rem;
  }
  .benchmark{
@@ -32,16 +40,19 @@ html {
  }
  .box{
     border: 3px solid white;
-    width: 15rem;
-    border-radius: 30px;
-    padding: 1rem 0 ;
+    width: 20rem;
+    border-radius: 35px;
+    padding: 1.3rem 0 ;
     background-color: rgba(179, 177, 178, 0.12);
     
  }
  .benchmark h3{
-    margin-bottom: 2.5rem;
+    margin-bottom: 5rem;
  }
  h3{
   font-size: 2rem;  
   margin-top: 6.5rem;
+ }
+ .bold {
+   font-weight: bold;
  }
