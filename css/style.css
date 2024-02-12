@@ -1,0 +1,11 @@
+body {
+  background-image: url("../images/bg.jpg");
+  background-position: center;
+  background-size: cover;
+  color: white;
+}
+.logo img {
+  max-width: 20%;
+}
+ {
+}
