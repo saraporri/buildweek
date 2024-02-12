@@ -1,0 +1,26 @@
+Build Week
+
+
+
+
+
+
+- Creazione Master : creiamo la struttura : html, js, e css => creiamo subito il primo branch
+
+- Giorno 1:
+
+-creazione della struttura html e css delle 4 pagine
+
+In CSS ci saranno delle classi e caratteristiche comuni: logo, sfondo, colori, font, stile bottoni
+
+Una volta create le 4 pagine con relativo CSS, uniremo i 4 documenti in un unico file html con il suo CSS, che verranno poi mergate al Master
+
+NB: IL PRODOTTO FINALE AVRA UN UNICO FILE HTML CON IL SUO CSS, CON DIV CHE SI ACCENDERANNO E SPEGNERANNO A SECONDA DELLA RICHIESTA
+
+Da ricordarsi: teniamo conto del tempo che ci occuperà JS, sopratutto le animazioni del timer e gli extra
+
+
+
+Antonio ha asterisco su main branch
+
+
