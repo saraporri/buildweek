@@ -21,6 +21,17 @@ Da ricordarsi: teniamo conto del tempo che ci occuperà JS, sopratutto le animaz
 
 
 
-Antonio ha asterisco su main branch
+Resoconto prima giornata:
+
+- Siamo partiti con l'analisi dell'html e del CSS delle 4 slides, abbiamo successivamente creato un file html contenente
+tutte le 4 sezioni (ogni sezione contiene una pagina, come se fosse una index).
+
+- Dopo aver creato l'Html principale, abbiamo pushato il codice sul main, dandogli quindi una prima struttura.
+
+- Abbiamo suddiviso ogni slide in una sezione, e a gruppi abbiamo creato un foglio html specifico per quella sezione
+con il corrispondete css.
+
+- Ognuno di noi ha pushato il proprio lavoro su main-branch, in modo tale da trovarci le 4 sezioni di html e quelle di CSS,
+in modo tale da poter poi tutti insieme, unire il tutto, unificando le classi, per poi pushare l'HTML e il CSS definitivo sul mail code.
 
 
