@@ -1,0 +1,41 @@
+.results{
+    text-align: center;
+    box-sizing: border-box;
+}
+.titolo{
+    font-size: 3.5em;
+    font-weight: bolder;
+    
+}
+.summary{
+    font-weight: lighter;
+    margin: 0;
+}
+.stats{
+    display: inline-flex;
+    text-align: center;
+    margin: 2em 0;
+    
+}
+.rate{
+    border: 2px solid white;
+    padding: 1em 3em;
+    max-width: 70px;
+    margin: auto;
+}
+.correct-wrong{
+    font-size: 3.5em
+}
+.percentuale{
+    font-weight: bold;
+    font-size: 3.5em;
+}
+.num-questions{
+
+}
+.wrong-destra{
+    text-align: right;
+}
+.correct-sinistra{
+    text-align: left;
+}
