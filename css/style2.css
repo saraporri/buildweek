@@ -75,45 +75,21 @@ h3 {
  .box{
     border-width: 2px;
     border-style: solid;
-    border-image: linear-gradient() ;
     border-radius: 35px;
     min-width: 20rem;
     min-height: 1.8rem;
     padding: 1.5rem ;
     background-color: rgba(179, 177, 178, 0.12);
-    cursor: pointer;
-    transition: color 0.4s linear;
-    position: relative;
     font-family: "Inter", sans-serif;
     font-size: 16px;
-
+ }
+ .box:hover {
+   background: linear-gradient(#d20094, #900080)
+ }
+ .box.selected {
+   background: linear-gradient(#d20094, #900080)
  }
 
- .box::before {
-   content: "";
-   border-radius: 35px;
-   position: absolute;
-   left: 0%;
-   top: 0%;
-   width: 100%;
-   height: 100%;
-   background: linear-gradient(#d20094, #900080);
-   z-index: -1;
-   /* transition: border-radius 0.1s; */
-   /* transform-origin: 0 0; */
-   /* transition-timing-function: cubic-bezier(1,1,1,1) */
- }
-.box1::before{
-   width: 0%;
-   /* transform: border-radius 0.1s; */
-   
-
-}
-.box1:hover::before {
-   width: 100%;
-   /* border-radius: 35px; */
-
-}
  .benchmark h3{
     margin-bottom: 5rem;
  }
@@ -123,7 +99,4 @@ h3 {
  }
  .bold {
    font-weight: bold;
- }
- .selected {
-   background: linear-gradient(#d20094, #900080)
  }
