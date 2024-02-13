@@ -29,12 +29,8 @@ body {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    line-height: 0px ;
+    line-height: 1 ;
     margin-bottom: 20px;
-    
-}
-
-.container p{
     
 }
 
@@ -56,9 +52,8 @@ ul>li {
 
 .instructions h3{
     color: #d20094;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
-    padding-bottom: 8px;
 }
 
 .instructions {
@@ -70,15 +65,16 @@ ul>li {
     background-color: #00FFFF;
     display: inline-block;
     color: black;
-    padding: 10px 35px ;
+    padding: 15px 40px ;
     font-weight: bold;
     box-shadow:  0 0 5px #00aced,  0 0 8px #00aced;
     cursor: pointer;
-    margin-left: 90px;
+    margin-left: 300px;
 
 }
 
 input{
     display: inline-block;
-    color: #2c3265;
+    border: 2px solid white;
+    
 }
