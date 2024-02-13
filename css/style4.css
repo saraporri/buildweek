@@ -93,7 +93,7 @@ button {
   height: 16px;
   width: 16px;
   color: #ccc;
-  font-size: 24px;
+  font-size: 25px;
   line-height: 16px;
   margin-right: 4px;
   text-align: center;
@@ -110,22 +110,22 @@ button {
 
 .rating[dir="rtl"]>input:checked~.rating-label:before {
   content: "\2605";
-  color: #feca02;
+  color: aqua;
 }
 
 .rating-label.is-active {
-  color: #feca02;
+  color: aqua;
 }
 
 .rating-large .rating-label {
   height: 24px;
   width: 24px;
-  font-size: 32px;
+  font-size: 50px;
   margin-right: 8px;
 }
 
 .rating-large .rating-label:before {
-  font-size: 32px;
+  font-size: 50px;
 }
 
 .rating-small .rating-label {
