@@ -35,3 +35,12 @@ con il corrispondete css.
 in modo tale da poter poi tutti insieme, unire il tutto, unificando le classi, per poi pushare l'HTML e il CSS definitivo sul mail code.
 
 
+Seconda Giornata:
+
+- Creazione di HTML e CSS da implementare nel main, contenente tutte le parti create ieri.
+
+- Brainstorming su JavaScript, analisi approfondita delle funzionalità da sviluppare
+
+- Ci suddivideremo poi in gruppi, in base alla difficoltà delle funzionalità dedicheremo più tempo e risorse.
+
+
