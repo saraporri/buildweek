@@ -12,9 +12,13 @@ function fetchQuestion() {
     })
     .then((data) => {
       if (currentQuestionIndex < data.results.length) {
-        const question = data.results[currentQuestionIndex];
-        displayQuestion(question);
-        currentQuestionIndex++;
+        document.querySelectorAll(".box").forEach((box) => {
+          box.addEventListener("click", function () {
+            const question = data.results[currentQuestionIndex];
+            displayQuestion(question);
+            currentQuestionIndex++;
+          });
+        });
       }
     })
     .catch((error) => {
@@ -33,9 +37,3 @@ function displayQuestion(question) {
 fetchQuestion();
 
 // Aggiungi un listener solo se è necessario caricare nuove domande al click
-document.querySelectorAll(".box").forEach((box) => {
-  box.addEventListener("click", function () {
-    questionElement.remove();
-    fetchQuestion();
-  });
-});

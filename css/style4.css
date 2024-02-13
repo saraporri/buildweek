@@ -35,7 +35,7 @@ form p {
 }
 
 .subtitle {
-  padding: 30px;
+  margin-bottom: 30px;
   font-size: 1.2rem;
 }
 
@@ -139,21 +139,15 @@ button {
   font-size: 16px;
 }
 
-.wrapper {
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-.rating-large {
-  justify-content: space-between;
-  display: flex;
-  margin-left: 1000px;
 
+.rating-large {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 30px;
 }
 
 .rating {
-  margin: 15px auto;
+  margin: 40px auto;
 }
 
 button {
