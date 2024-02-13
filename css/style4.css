@@ -74,3 +74,94 @@ button {
   box-shadow: 0 0 5px #00aced, 0 0 8px #00aced;
   border: none;
 }
+/* inizio */
+.rating {
+  font-size: 0;
+}
+
+.rating:after {
+  content: " ";
+  clear: both;
+  display: block;
+}
+
+.rating input {
+  display: none
+}
+
+.rating-label {
+  height: 16px;
+  width: 16px;
+  color: #ccc;
+  font-size: 24px;
+  line-height: 16px;
+  margin-right: 4px;
+  text-align: center;
+  display: inline-block;
+}
+
+.rating[dir="rtl"] {
+  unicode-bidi: bidi-override;
+}
+
+.rating[dir="rtl"]>input:checked~.rating-label {
+  font-size: 0;
+}
+
+.rating[dir="rtl"]>input:checked~.rating-label:before {
+  content: "\2605";
+  color: #feca02;
+}
+
+.rating-label.is-active {
+  color: #feca02;
+}
+
+.rating-large .rating-label {
+  height: 24px;
+  width: 24px;
+  font-size: 32px;
+  margin-right: 8px;
+}
+
+.rating-large .rating-label:before {
+  font-size: 32px;
+}
+
+.rating-small .rating-label {
+  height: 12px;
+  width: 12px;
+  font-size: 16px;
+  margin-right: 2px;
+}
+
+.rating-small .rating-label:before {
+  font-size: 16px;
+}
+
+.wrapper {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.rating-large {
+  justify-content: space-between;
+  display: flex;
+  margin-left: 1000px;
+
+}
+
+.rating {
+  margin: 15px auto;
+}
+
+button {
+  display: inline-block;
+  padding: 15px 55px;
+  background-color: #1d1f20;
+  color: #fff;
+  border: 0;
+  font-size: 12px;
+  text-transform: uppercase;
+}
