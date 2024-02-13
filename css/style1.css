@@ -74,10 +74,15 @@ input {
   color: #2c3265;
 }
 .error {
-  display: none;
+  visibility: hidden;
 }
 .error-red {
-  display: block;
+  visibility: visible;
   text-decoration: underline;
   color: red;
+}
+.foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
