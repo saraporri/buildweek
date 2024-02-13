@@ -1,10 +1,44 @@
 html {
-    box-sizing: border-box;
-  }
-   *, *:before, *:after {
-    box-sizing: inherit;
-  }
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+#container-logo img {
+  max-width: 20%;
+  max-height: 20%;
+  margin-left: 4rem;
+  margin-top: 2rem;
+}
+.benchmark {
+  text-align: center;
+  color: white;
+  margin: 0 7rem;
+}
 
+.risposta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+  gap: 1rem 2rem;
+}
+.box {
+  border: 3px solid white;
+  width: 15rem;
+  border-radius: 30px;
+  padding: 1rem 0;
+  background-color: rgba(179, 177, 178, 0.12);
+}
+.benchmark h3 {
+  margin-bottom: 2.5rem;
+}
+h3 {
+  font-size: 2rem;
+  margin-top: 6.5rem;
+}
  body{
     background-image: url("../images/bg.jpg");
     background-size: cover;
@@ -39,18 +73,28 @@ html {
     gap: 1rem 2rem;
  }
  .box{
-    border: 3px solid white;
-    width: 20rem;
+    border-width: 2px;
+    border-style: solid;
     border-radius: 35px;
-    padding: 1.3rem 0 ;
+    min-width: 20rem;
+    min-height: 1.8rem;
+    padding: 1.5rem ;
     background-color: rgba(179, 177, 178, 0.12);
-    
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
  }
+ .box:hover {
+   background: linear-gradient(#d20094, #900080)
+ }
+ .box.selected {
+   background: linear-gradient(#d20094, #900080)
+ }
+
  .benchmark h3{
     margin-bottom: 5rem;
  }
  h3{
-  font-size: 2rem;  
+  font-size: 3rem;  
   margin-top: 6.5rem;
  }
  .bold {

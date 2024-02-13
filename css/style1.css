@@ -29,19 +29,21 @@ body {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    line-height: 1 ;
+    line-height: 0px ;
     margin-bottom: 20px;
     
 }
 
 ul{
-    list-style: inside;
+    list-style: disc;
     margin-top: 30px;
     margin-bottom: 50px;
+    padding-left: 20px;
 }
 
 ul>li {
     
+    font-size: 16px;
     
 }
 
@@ -57,7 +59,7 @@ ul>li {
 }
 
 .instructions {
-    font-size: 12px;
+    font-size: 16px;
 
 }
 
@@ -69,12 +71,11 @@ ul>li {
     font-weight: bold;
     box-shadow:  0 0 5px #00aced,  0 0 8px #00aced;
     cursor: pointer;
-    margin-left: 300px;
+    margin-left: 90px;
 
 }
 
 input{
     display: inline-block;
-    border: 2px solid white;
-    
+    color: #2c3265;
 }
