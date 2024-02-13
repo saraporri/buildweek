@@ -1,0 +1,35 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:800);
+
+body {
+  background-image: url(../images/bg.jpg);
+}
+
+.container {
+  margin: auto;
+  width: 200px;
+  height: 200px;
+}
+
+.path--background {
+  fill: #00ffff;
+  stroke: #fff;
+  stroke-width: 0px;
+  border-radius: 35px;
+}
+
+.pulse {
+  fill: #00ffff;
+}
+
+.path--foreground {
+  fill: #eee;
+  stroke: #eee;
+  stroke-width: 2px;
+}
+
+.label {
+  font: 90px "Open Sans";
+  font-weight: 900;
+  text-anchor: middle;
+  fill: white;
+}
