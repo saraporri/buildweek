@@ -1,58 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/style1.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit&display=swap"
+      rel="stylesheet" />
     <title>Benchmark</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="logo">
-        <img src="./images/epicode_logo.png" alt="logo" />
-        <div class="countdown"></div>
+      <img src="./images/epicode_logo.png" alt="logo" />
+      <div class="countdown"></div>
     </div>
     <div class="container">
-        <h3>
-            Welcome to
-            <p class="bold">your exam</p>
-        </h3>
-        <div class="instructions">
-            <h3>Instructions</h3>
-            <p>
-                We don't expect most engineers to kwonw the answers to all of these
-                questions, so don't worry if you're unsure of a few of them.
-            </p>
-            <ul>
-                <li>
-                    Each question is
-                    <span class="bold">timed</span>
-                    and can only be
-                    <span class="bold">aswered once</span>
-                </li>
-                <li>
-                    Changing browser tab or opening other windows will
-                    <span class="bold">invalidate the question.</span>
-                </li>
-                <li>
-                    This exam will take approx.
-                    <span class="bold">0-5 minutes.</span>
-                </li>
-            </ul>
-            <div class="foot">
-                <input type="checkbox" />
-                <span class="bold">
-                    I promise to answer myself without help from anyone
-                </span>
-                <div class="bottone">PROCEED</div>
-            </div>
-        </div>
-    </div>
-</body>
+      <h3>
+        Welcome to
+        <p class="bold">your exam</p>
+      </h3>
+      <div class="instructions">
+        <h3>Instructions</h3>
+        <p>
+          We don't expect most engineers to kwonw the answers to all of these
+          questions, so don't worry if you're unsure of a few of them.
+        </p>
+        <ul>
+          <li>
+            Each question is
+            <span class="bold">timed</span>
+            and can only be
+            <span class="bold">aswered once</span>
+          </li>
+          <li>
+            Changing browser tab or opening other windows will
+            <span class="bold">invalidate the question.</span>
+          </li>
+          <li>
+            This exam will take approx.
+            <span class="bold">0-5 minutes.</span>
+          </li>
+        </ul>
+        <div class="foot">
+          <input type="checkbox" id="checkbox" required />
+          <span class="bold">
+            I promise to answer myself without help from anyone
+          </span>
+          <span id="error">Checkbox is required</span>
 
+          <div class="bottone">PROCEED</div>
+        </div>
+      </div>
+    </div>
+    <script src="js/checkboxbutton.js"></script>
+  </body>
 </html>
