@@ -1,81 +1,83 @@
 body {
-    background-image: url("../images/bg.jpg");
-    background-position: center;
-    background-size: cover;
-    color: white;
+  background-image: url("../images/bg.jpg");
+  background-position: center;
+  background-size: cover;
+  color: white;
 }
 
 .logo img {
-    max-width: 10%;
-    
+  max-width: 10%;
 }
 
-.logo{
-    margin: 30px 45px ;
+.logo {
+  margin: 30px 45px;
 }
 
-.container{
-    margin: 50px;
-    box-sizing: border-box;
-    max-width: fit-content;
-    max-height: fit-content;
-    margin-left: auto;
-    margin-right: auto;
+.container {
+  margin: 50px;
+  box-sizing: border-box;
+  max-width: fit-content;
+  max-height: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.container h3{
-    font-size: 80px;
-    font-family: "Outfit", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 1 ;
-    margin-bottom: 20px;
-    
+.container h3 {
+  font-size: 80px;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+  margin-bottom: 20px;
 }
 
-ul{
-    list-style: disc;
-    margin-top: 30px;
-    margin-bottom: 50px;
-    padding-left: 20px;
+ul {
+  list-style: disc;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  padding-left: 20px;
 }
 
-ul>li {
-    
-    font-size: 16px;
-    
+ul > li {
+  font-size: 16px;
 }
 
 .bold {
-    font-weight: bold;
-    
+  font-weight: bold;
 }
 
-.instructions h3{
-    color: #d20094;
-    font-size: 30px;
-    font-weight: bold;
+.instructions h3 {
+  color: #d20094;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .instructions {
-    font-size: 16px;
-
+  font-size: 16px;
 }
 
-.bottone{
-    background-color: #00FFFF;
-    display: inline-block;
-    color: black;
-    padding: 15px 40px ;
-    font-weight: bold;
-    box-shadow:  0 0 5px #00aced,  0 0 8px #00aced;
-    cursor: pointer;
-    margin-left: 300px;
-
+.bottone {
+  background-color: #00ffff;
+  display: inline-block;
+  color: black;
+  padding: 15px 40px;
+  font-weight: bold;
+  box-shadow: 0 0 5px #00aced, 0 0 8px #00aced;
+  cursor: pointer;
+  margin-left: 300px;
+  max-width: 75px;
 }
 
-input{
-    display: inline-block;
-    color: #2c3265;
+input {
+  display: inline-block;
+  color: #2c3265;
+}
+.error {
+  display: none;
+}
+.error-red {
+  display: block;
+  text-decoration: underline;
+  color: red;
 }
