@@ -68,9 +68,13 @@ ul > li {
   color: black;
   padding: 15px 40px;
   font-weight: bold;
-  box-shadow: 0 0 5px #00aced, 0 0 8px #00aced;
+  box-shadow: 0 0 5px #00ffff, 0 0 8px #00ffff;
   cursor: pointer;
   margin-left: 300px;
+  transition: 400ms ease-in-out;
+}
+.bottone:hover {
+  box-shadow: 0 0 15px #00ffff, 0 0 15px #00ffff;
 }
 
 input {

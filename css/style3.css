@@ -37,13 +37,19 @@
 }
 
 .rate {
+  display: block;
   font-size: 1.1em;
   font-weight: bolder;
-  border: 2px solid white;
+  border: 3px solid white;
   padding: 1em 3em;
-  max-width: 75px;
-  margin: auto;
-  box-shadow: 0 0 5px #3f256f, 0 0 8px #3f256f;
+  margin: 0 auto;
+  cursor: pointer;
+  max-width: fit-content;
+  box-shadow: 0 0 8px #402570, 0 0 8px#402570;
+  transition: 400ms ease-in-out;
+}
+.rate:hover {
+  box-shadow: 0 0 15px #402570, 0 0 15px#fff;
 }
 .canvas {
   width: 100%;

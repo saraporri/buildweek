@@ -1,3 +1,17 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+#container-logo img {
+  max-width: 20%;
+  max-height: 20%;
+  margin-left: 4rem;
+  margin-top: 2rem;
+}
 .benchmark {
   text-align: center;
   color: white;
@@ -18,6 +32,7 @@
   margin-bottom: 2.5rem;
   gap: 1rem 2rem;
 }
+
 .box {
   border: 3px solid white;
   width: 15rem;
@@ -32,7 +47,25 @@ h3 {
   font-size: 2rem;
   margin-top: 6.5rem;
 }
-
+body {
+  background-image: url("../images/bg.jpg");
+  background-size: cover;
+  max-width: 100%;
+  max-height: 100%;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+#container-logo {
+  margin-bottom: 15rem;
+}
+#container-logo img {
+  max-width: 15%;
+  max-height: 15%;
+  margin-left: 3rem;
+  margin-top: 2rem;
+}
 .benchmark {
   text-align: center;
   color: white;
