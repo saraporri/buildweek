@@ -61,26 +61,45 @@
     </div>
     <template>
       <div id="container-countdown"></div>
-    <div class="benchmark">
-      
-      <h3>
-        How can I create a
-        <p class="bold">checkbox in HTML?</p>
-      </h3>
-      <div class="quiz">
-        <div class="risposta">
-          <div class="box box1">asdnaskljndaskljfn</div>
-          <div class="box box1 selected">asdlkjvnaklsdj</div>
-          <div class="box box1">asdkjvnaskljdv</div>
-          <div class="box box1">alskdjnvlaksdjnv</div>
+      <div class="benchmark">
+        <div class="domanda"></div>
+        <div class="quiz">
+          <div class="risposta"></div>
         </div>
+        <div class="numero-domande"></div>
       </div>
-      <div class="numero-domande"></div>
-    </div>
     </template>
-    <script src='//cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js'></script>
-    <script src="js/countdown copy.js"></script>
-    <script src="js/checkboxbutton.js"></script>
-    
+
+    <template>
+      <div class="results">
+        <div class="main-div">
+          <h3 class="bold titolo">Results</h3>
+          <div class="summary">The summary of your answers:</div>
+        </div>
+        <div class="stats">
+          <div class="correct">
+            <div class="correct-sinistra">
+              <div class="correct-wrong">Correct</div>
+              <div class="percentuale">66.7%</div>
+              <div class="num-questions">questions</div>
+            </div>
+          </div>
+          
+          <div class="wrong">
+            <div class="wrong-destra">
+              <div class="correct-wrong">Wrong</div>
+              <div class="percentuale">33.3%</div>
+              <div class="num-questions">questions</div>
+            </div>
+          </div>
+        </div>
+        <div class="rate">RATE US</div>
+      </div>
+    </template>
+      <script src='//cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js'></script>
+      <script src="js/countdown copy.js"></script>
+      <script src="js/checkboxbutton.js"></script>
+      <script src="./fetch/fetch.js"></script>
+      
   </body>
 </html>

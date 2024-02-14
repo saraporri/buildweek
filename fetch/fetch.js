@@ -95,8 +95,15 @@ function displayQuestion(question) {
         else {
           wrongAnswer += 1
         }
-      } else {
-        console.log("Hai completato tutte le domande!");
+      } 
+      else {
+        let benchmark = document.querySelector('.benchmark')
+
+
+        let temp = document.getElementsByTagName("template")[1];
+        let clon = temp.content.cloneNode(true);
+        document.body.appendChild(clon);
+        document.body.removeChild(benchmark);
         // Qui potresti voler fare qualcosa di specifico quando l'utente ha risposto a tutte le domande
       }
     };
