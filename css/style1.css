@@ -1,8 +1,14 @@
 body {
   background-image: url("../images/bg.jpg");
-  background-position: center;
+  background-position: center center;
+  background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
   color: white;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .logo img {
@@ -102,7 +108,6 @@ svg {
   background-color: transparent;
   left: 90%;
   transform: translate(-50%, -50%) rotateZ(-90deg);
-  
 }
 svg .circle {
   stroke: #15d3d3;
@@ -115,12 +120,10 @@ svg .circle {
 
 #timer {
   position: absolute;
-  top:24%;
+  top: 24%;
   left: 90%;
   transform: translate(-50%, -50%);
-  color:rgb(28, 178, 220);
+  color: rgb(28, 178, 220);
   font-size: 42px;
   font-weight: 700;
-
 }
-

@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
       responseContainer.appendChild(button);
     });
 
-    document.querySelector(".numero-domande").textContent = `Domanda ${
+    document.querySelector(".numero-domande").textContent = `Question ${
       currentQuestionIndex + 1
     }/${questions.length}`;
   }

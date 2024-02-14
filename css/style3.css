@@ -1,10 +1,3 @@
-body {
-  background-image: url("../images/bg.jpg");
-  background-position: center;
-  background-size: cover;
-  color: white;
-  box-sizing: border-box;
-}
 .results {
   text-align: center;
   box-sizing: border-box;

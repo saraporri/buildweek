@@ -95,7 +95,7 @@ function displayQuestion(question) {
   });
 
   // Aggiorna il testo con il numero della domanda corrente e il numero totale delle domande
-  document.querySelector(".numero-domande").textContent = `Domanda ${
+  document.querySelector(".numero-domande").textContent = `Question ${
     currentQuestionIndex + 1
   }/${questions.length}`;
 }
