@@ -34,6 +34,27 @@ const fetchQuestion = async () => {
   }
 };
 
+function startCountdown() {
+  let seconds = 60; 
+  let temp = document.getElementsByTagName('template')[0];
+  let countdownElement = temp.content.cloneNode(true).querySelector('#timer');
+  let countdown = document.querySelector('.countdown');
+  let svg = document.querySelector('.svg');
+  countdown.appendChild(countdownElement,svg);
+  
+  let countdownInterval = setInterval(function() {
+  countdownElement.textContent = seconds;
+  if (seconds === 0) {
+      clearInterval(countdownInterval);
+      
+
+  } else {
+      seconds--; 
+  }
+  }, 1000); 
+}
+
+
 function displayQuestion(question) {
   let questionElement = document.querySelector("#questionHeader");
   if (!questionElement) {
@@ -52,7 +73,9 @@ function displayQuestion(question) {
     button.innerText = response;
     button.classList.add("box", "box1");
     button.onclick = () => {
+      stopCountdown();
       currentQuestionIndex++;
+      startCountdown();
       if (currentQuestionIndex < questions.length) {
         displayQuestion(questions[currentQuestionIndex]);
         if (button.innerText == question.correct_answer) {
@@ -84,28 +107,7 @@ function displayQuestion(question) {
 // Avvia il quiz
 
 
-function startCountdown() {
-  let seconds = 60; 
-  let temp = document.getElementsByTagName('template')[0];
-  let countdownElement = temp.content.cloneNode(true).querySelector('#timer');
-  let countdown = document.querySelector('.countdown');
-  let svg = document.querySelector('.svg');
-  countdown.appendChild(countdownElement,svg);
-  
-  
-  
-  
-  let countdownInterval = setInterval(function() {
-  countdownElement.textContent = seconds;
-  if (seconds === 0) {
-      clearInterval(countdownInterval);
-      countdownElement.textContent = "Countdown terminato!";
 
-  } else {
-      seconds--; 
-  }
-  }, 1000); 
-}
 
 bottone.addEventListener("click", function () {
   if (checkbox.checked) {
@@ -119,3 +121,4 @@ bottone.addEventListener("click", function () {
     error.classList.replace("error", "error-red");
   }
 });
+
