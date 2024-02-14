@@ -44,3 +44,22 @@ Seconda Giornata:
 - Ci suddivideremo poi in gruppi, in base alla difficoltà delle funzionalità dedicheremo più tempo e risorse.
 
 
+Cosa abbiamo afatto al giorno 2:
+
+- Creazione il countdown, da applicare poi nella main pagine
+
+- Creazione del sistema di fetch, importando i dati da un url esterno
+
+- Creazione del sistema benchmark, con tutte le sue funzionalità (da sviluppare ancora)
+
+- Creazione della schermata finale del form, implementazione delle stelle interattive
+
+
+
+Giorno 3:
+
+- Continuiamo l'implementazione del benchmark
+
+- Brainstorming sulla pagina results
+
+

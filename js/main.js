@@ -1,42 +1,10 @@
-// let currentQuestionIndex = 0;
-// const apiUrl =
-//   "https://opentdb.com/api.php?amount=10&category=18&difficulty=easy";
+const bottone = document.querySelector(".bottone");
+const checkbox = document.querySelector("#checkbox");
+const error = document.querySelector(".error");
+let welcome = document.querySelector(".container");
+let correctAnswer = 0;
+let wrongAnswer = 0;
 
-// function fetchQuestion() {
-//   fetch(apiUrl)
-//     .then((response) => {
-//       if (!response.ok) {
-//         throw new Error("Errore nella richiesta!");
-//       }
-//       return response.json();
-//     })
-//     .then((data) => {
-//       if (currentQuestionIndex < data.results.length) {
-//         document.querySelectorAll(".box").forEach((box) => {
-//           box.addEventListener("click", function () {
-//             const question = data.results[currentQuestionIndex];
-//             displayQuestion(question);
-//             currentQuestionIndex++;
-//           });
-//         });
-//       }
-//     })
-//     .catch((error) => {
-//       console.error("Si è verificato un errore:", error);
-//     });
-// }
-
-// const questionElement = document.createElement("h3");
-
-// function displayQuestion(question) {
-//   questionElement.textContent = question.question; // Correzione qui
-//   document.querySelector(".domanda").appendChild(questionElement); // Assicurati che l'elemento esista
-// }
-
-// // Assumi che questa sia l'unica volta che vuoi avviare fetchQuestion all'inizio.
-// fetchQuestion();
-
-// // Aggiungi un listener solo se è necessario caricare nuove domande al click
 let currentQuestionIndex = 0;
 let questions = []; // Definisco l'array di domande a livello globale per poterlo riempire dopo il fetch
 
@@ -66,8 +34,6 @@ const fetchQuestion = async () => {
   }
 };
 
-
-
 function displayQuestion(question) {
   let questionElement = document.querySelector("#questionHeader");
   if (!questionElement) {
@@ -89,16 +55,15 @@ function displayQuestion(question) {
       currentQuestionIndex++;
       if (currentQuestionIndex < questions.length) {
         displayQuestion(questions[currentQuestionIndex]);
-        if(button.innerText == question.correct_answer){
-          correctAnswer += 1
+        if (button.innerText == question.correct_answer) {
+          correctAnswer += 1;
+          console.log(correctAnswer);
+        } else {
+          wrongAnswer += 1;
+          console.log(wrongAnswer);
         }
-        else {
-          wrongAnswer += 1
-        }
-      } 
-      else {
-        let benchmark = document.querySelector('.benchmark')
-
+      } else {
+        let benchmark = document.querySelector(".benchmark");
 
         let temp = document.getElementsByTagName("template")[1];
         let clon = temp.content.cloneNode(true);
@@ -117,4 +82,14 @@ function displayQuestion(question) {
 }
 
 // Avvia il quiz
-fetchQuestion();
+bottone.addEventListener("click", function () {
+  if (checkbox.checked) {
+    let temp = document.querySelector("#template1");
+    let clon = temp.content.cloneNode(true);
+    document.body.appendChild(clon);
+    document.body.removeChild(welcome);
+    fetchQuestion();
+  } else {
+    error.classList.replace("error", "error-red");
+  }
+});
