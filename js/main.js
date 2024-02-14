@@ -35,25 +35,22 @@ const fetchQuestion = async () => {
 };
 
 function startCountdown() {
-  let seconds = 60; 
-  let temp = document.getElementsByTagName('template')[0];
-  let countdownElement = temp.content.cloneNode(true).querySelector('#timer');
-  let countdown = document.querySelector('.countdown');
-  let svg = document.querySelector('.svg');
-  countdown.appendChild(countdownElement,svg);
-  
-  let countdownInterval = setInterval(function() {
-  countdownElement.textContent = seconds;
-  if (seconds === 0) {
+  let seconds = 60;
+  let temp = document.getElementsByTagName("template")[0];
+  let countdownElement = temp.content.cloneNode(true).querySelector("#timer");
+  let countdown = document.querySelector(".countdown");
+  let svg = document.querySelector(".svg");
+  countdown.appendChild(countdownElement, svg);
+
+  let countdownInterval = setInterval(function () {
+    countdownElement.textContent = seconds;
+    if (seconds === 0) {
       clearInterval(countdownInterval);
-      
-
-  } else {
-      seconds--; 
-  }
-  }, 1000); 
+    } else {
+      seconds--;
+    }
+  }, 1000);
 }
-
 
 function displayQuestion(question) {
   let questionElement = document.querySelector("#questionHeader");
@@ -105,9 +102,6 @@ function displayQuestion(question) {
 
 // Avvia il quiz
 
-
-
-
 bottone.addEventListener("click", function () {
   if (checkbox.checked) {
     let temp = document.querySelector("#template1");
@@ -128,7 +122,6 @@ bottone.addEventListener("click", function () {
 //  data: data,
 //};
 
-
 //const data = {
 //  labels: [
 //    'Red',
@@ -143,7 +136,7 @@ bottone.addEventListener("click", function () {
 //      'rgb(54, 162, 235)',
 //      'rgb(255, 205, 86)'
 //    ],
-//    hoverOffset: 4 
+//    hoverOffset: 4
 //  }]
 //};
 //
@@ -151,31 +144,30 @@ bottone.addEventListener("click", function () {
 //
 //
 
-
-const domande = ['giuste', 'sbagliate']
-const percentuali = [30,70]
-const colori  = ["#b91d47","#00aba9"]
-
+const domande = ["giuste", "sbagliate"];
+const percentuali = [30, 70];
+const colori = ["#b91d47", "#00aba9"];
 
 const grafico = new Chart("canvas", {
   type: "doughnut",
   data: {
     labels: xValues,
-    datasets: [{
-      backgroundColor: barColors,
-      data: yValues
-    }]
+    datasets: [
+      {
+        backgroundColor: barColors,
+        data: yValues,
+      },
+    ],
   },
   options: {
     title: {
       display: true,
-      text: "World Wide Wine Production 2018"
-    }
-  }
+      text: "World Wide Wine Production 2018",
+    },
+  },
 });
 
-
-let target = document.getElementsByTagName('template')[1]
-let torta = target.content.cloneNode(true).querySelector('#canvas')
-let canvas = document.getElementById('canvas')
-canvas.appendChild(grafico)
+let target = document.getElementsByTagName("template")[1];
+let torta = target.content.cloneNode(true).querySelector("#canvas");
+let canvas = document.getElementById("canvas");
+canvas.appendChild(grafico);
