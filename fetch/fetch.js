@@ -1,41 +1,191 @@
+// let currentQuestionIndex = 0;
+// const apiUrl =
+//   "https://opentdb.com/api.php?amount=10&category=18&difficulty=easy";
+
+// function fetchQuestion() {
+//   fetch(apiUrl)
+//     .then((response) => {
+//       if (!response.ok) {
+//         throw new Error("Errore nella richiesta!");
+//       }
+//       return response.json();
+//     })
+//     .then((data) => {
+//       if (currentQuestionIndex < data.results.length) {
+//         document.querySelectorAll(".box").forEach((box) => {
+//           box.addEventListener("click", function () {
+//             const question = data.results[currentQuestionIndex];
+//             displayQuestion(question);
+//             currentQuestionIndex++;
+//           });
+//         });
+//       }
+//     })
+//     .catch((error) => {
+//       console.error("Si è verificato un errore:", error);
+//     });
+// }
+
+// const questionElement = document.createElement("h3");
+
+// function displayQuestion(question) {
+//   questionElement.textContent = question.question; // Correzione qui
+//   document.querySelector(".domanda").appendChild(questionElement); // Assicurati che l'elemento esista
+// }
+
+// // Assumi che questa sia l'unica volta che vuoi avviare fetchQuestion all'inizio.
+// fetchQuestion();
+
+// // Aggiungi un listener solo se è necessario caricare nuove domande al click
 let currentQuestionIndex = 0;
 const apiUrl =
   "https://opentdb.com/api.php?amount=10&category=18&difficulty=easy";
 
-function fetchQuestion() {
-  fetch(apiUrl)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Errore nella richiesta!");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      if (currentQuestionIndex < data.results.length) {
-        const question = data.results[currentQuestionIndex];
-        displayQuestion(question);
-        currentQuestionIndex++;
-      }
-    })
-    .catch((error) => {
-      console.error("Si è verificato un errore:", error);
-    });
-}
+const fetchQuestion = async () => {
+  // return fetch(apiUrl)
+  //   .then((response) => {
+  //     if (!response.ok) {
+  //       throw new Error("Errore nella richiesta!");
+  //     }
 
-const questionElement = document.createElement("h3");
+  //     return response.json();
+  //   })
+  return {
+    response_code: 0,
+    results: [
+      {
+        type: "multiple",
+        difficulty: "easy",
+        category: "Science: Computers",
+        question:
+          "The numbering system with a radix of 16 is more commonly referred to as ",
+        correct_answer: "Hexidecimal",
+        incorrect_answers: ["Binary", "Duodecimal", "Octal"],
+      },
+      {
+        type: "multiple",
+        difficulty: "easy",
+        category: "Science: Computers",
+        question:
+          "In any programming language, what is the most common way to iterate through an array?",
+        correct_answer: "&#039;For&#039; loops",
+        incorrect_answers: [
+          "&#039;If&#039; Statements",
+          "&#039;Do-while&#039; loops",
+          "&#039;While&#039; loops",
+        ],
+      },
+      {
+        type: "boolean",
+        difficulty: "easy",
+        category: "Science: Computers",
+        question:
+          "The Python programming language gets its name from the British comedy group &quot;Monty Python.&quot;",
+        correct_answer: "True",
+        incorrect_answers: ["False"],
+      },
+      {
+        type: "multiple",
+        difficulty: "easy",
+        category: "Science: Computers",
+        question: "HTML is what type of language?",
+        correct_answer: "Markup Language",
+        incorrect_answers: [
+          "Macro Language",
+          "Programming Language",
+          "Scripting Language",
+        ],
+      },
+      {
+        type: "multiple",
+        difficulty: "easy",
+        category: "Science: Computers",
+        question:
+          "What is the most preferred image format used for logos in the Wikimedia database?",
+        correct_answer: ".svg",
+        incorrect_answers: [".png", ".jpeg", ".gif"],
+      },
+      {
+        type: "boolean",
+        difficulty: "easy",
+        category: "Science: Computers",
+        question:
+          "The programming language &quot;Python&quot; is based off a modified version of &quot;JavaScript&quot;.",
+        correct_answer: "False",
+        incorrect_answers: ["True"],
+      },
+      {
+        type: "multiple",
+        difficulty: "easy",
+        category: "Science: Computers",
+        question: "How many kilobytes in one gigabyte (in decimal)?",
+        correct_answer: "1000000",
+        incorrect_answers: ["1024", "1000", "1048576"],
+      },
+      {
+        type: "multiple",
+        difficulty: "easy",
+        category: "Science: Computers",
+        question: "In computing, what does LAN stand for?",
+        correct_answer: "Local Area Network",
+        incorrect_answers: [
+          "Long Antenna Node",
+          "Light Access Node",
+          "Land Address Navigation",
+        ],
+      },
+      {
+        type: "multiple",
+        difficulty: "easy",
+        category: "Science: Computers",
+        question:
+          "When Gmail first launched, how much storage did it provide for your email?",
+        correct_answer: "1GB",
+        incorrect_answers: ["512MB", "5GB", "Unlimited"],
+      },
+      {
+        type: "multiple",
+        difficulty: "easy",
+        category: "Science: Computers",
+        question: "This mobile OS held the largest market share in 2012.",
+        correct_answer: "iOS",
+        incorrect_answers: ["Android", "BlackBerry", "Symbian"],
+      },
+    ],
+  };
+};
 
 function displayQuestion(question) {
-  questionElement.textContent = question.question; // Correzione qui
-  document.querySelector(".domanda").appendChild(questionElement); // Assicurati che l'elemento esista
-}
-
-// Assumi che questa sia l'unica volta che vuoi avviare fetchQuestion all'inizio.
-fetchQuestion();
-
-// Aggiungi un listener solo se è necessario caricare nuove domande al click
-document.querySelectorAll(".box").forEach((box) => {
-  box.addEventListener("click", function () {
-    questionElement.remove();
-    fetchQuestion();
+  let questionElement = document.querySelector("#questionHeader");
+  if (questionElement == null) {
+    questionElement = document.createElement("h3");
+    questionElement.id = "questionHeader";
+    document.querySelector(".domanda").appendChild(questionElement);
+  }
+  questionElement.textContent = question.question;
+  const responses = [...question.incorrect_answers, question.correct_answer];
+  const responseContainer = document.querySelector(".risposta");
+  responseContainer.innerHTML = null;
+  responses.forEach((response) => {
+    const button = document.createElement("button");
+    button.innerText = response;
+    button.classList.add("box");
+    button.classList.add("box1");
+    button.onclick = () => {
+      displayQuestion(questions.shift());
+    };
+    responseContainer.appendChild(button);
   });
-});
+}
+let questions = [];
+fetchQuestion()
+  .then((response) => {
+    if (response.results.length !== 0) {
+      questions = response.results;
+      displayQuestion(questions[0]);
+      questions.shift();
+    }
+  })
+  .catch((error) => {
+    alert("error: " + error.message);
+  });
