@@ -155,6 +155,8 @@ const fetchQuestion = async () => {
   };
 };
 
+
+
 function displayQuestion(question) {
   let questionElement = document.querySelector("#questionHeader");
   if (questionElement == null) {
@@ -164,18 +166,27 @@ function displayQuestion(question) {
   }
   questionElement.textContent = question.question;
 
-  const responses = [...question.incorrect_answers, question.correct_answer];
+  const responses = [question.correct_answer,...question.incorrect_answers];
   const responseContainer = document.querySelector(".risposta");
   responseContainer.innerHTML = "";
 
+  let correctAnswer = 0
+  let wrongAnswer = 0 
   responses.forEach((response) => {
     const button = document.createElement("button");
+
     button.innerText = response;
     button.classList.add("box", "box1");
     button.onclick = () => {
       currentQuestionIndex++;
       if (currentQuestionIndex < questions.length) {
         displayQuestion(questions[currentQuestionIndex]);
+        if(button.innerText == question.correct_answer){
+          correctAnswer += 1
+        }
+        else {
+          wrongAnswer += 1
+        }
       } else {
         console.log("Hai completato tutte le domande!");
       }
