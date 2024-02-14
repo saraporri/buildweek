@@ -163,27 +163,37 @@ function displayQuestion(question) {
     document.querySelector(".domanda").appendChild(questionElement);
   }
   questionElement.textContent = question.question;
+
   const responses = [...question.incorrect_answers, question.correct_answer];
   const responseContainer = document.querySelector(".risposta");
-  responseContainer.innerHTML = null;
+  responseContainer.innerHTML = "";
+
   responses.forEach((response) => {
     const button = document.createElement("button");
     button.innerText = response;
-    button.classList.add("box");
-    button.classList.add("box1");
+    button.classList.add("box", "box1");
     button.onclick = () => {
-      displayQuestion(questions.shift());
+      currentQuestionIndex++;
+      if (currentQuestionIndex < questions.length) {
+        displayQuestion(questions[currentQuestionIndex]);
+      } else {
+        console.log("Hai completato tutte le domande!");
+      }
     };
     responseContainer.appendChild(button);
   });
+
+  const domandeTotali = questions.length;
+  document.querySelector(".numero-domande").textContent = `Domanda ${
+    currentQuestionIndex + 1
+  }/${domandeTotali}`;
 }
-let questions = [];
+
 fetchQuestion()
   .then((response) => {
     if (response.results.length !== 0) {
       questions = response.results;
-      displayQuestion(questions[0]);
-      questions.shift();
+      displayQuestion(questions[currentQuestionIndex]);
     }
   })
   .catch((error) => {
