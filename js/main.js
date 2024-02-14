@@ -73,7 +73,6 @@ function displayQuestion(question) {
     button.innerText = response;
     button.classList.add("box", "box1");
     button.onclick = () => {
-      stopCountdown();
       currentQuestionIndex++;
       startCountdown();
       if (currentQuestionIndex < questions.length) {
@@ -122,3 +121,61 @@ bottone.addEventListener("click", function () {
   }
 });
 
+// ciambella
+
+//const config = {
+//  type: 'doughnut',
+//  data: data,
+//};
+
+
+//const data = {
+//  labels: [
+//    'Red',
+//    'Blue',
+//    'Yellow'
+//  ],
+//  datasets: [{
+//    label: 'My First Dataset',
+//    data: [300, 50, 100],
+//    backgroundColor: [
+//      'rgb(255, 99, 132)',
+//      'rgb(54, 162, 235)',
+//      'rgb(255, 205, 86)'
+//    ],
+//    hoverOffset: 4 
+//  }]
+//};
+//
+//
+//
+//
+
+
+const domande = ['giuste', 'sbagliate']
+const percentuali = [30,70]
+const colori  = ["#b91d47","#00aba9"]
+
+
+const grafico = new Chart("canvas", {
+  type: "doughnut",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "World Wide Wine Production 2018"
+    }
+  }
+});
+
+
+let target = document.getElementsByTagName('template')[1]
+let torta = target.content.cloneNode(true).querySelector('#canvas')
+let canvas = document.getElementById('canvas')
+canvas.appendChild(grafico)
