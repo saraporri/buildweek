@@ -19,6 +19,8 @@ html {
 }
 
 .domanda {
+  display: block;
+  margin: 0 auto;
   width: 400px;
   color: white;
   font-size: 1.5rem;

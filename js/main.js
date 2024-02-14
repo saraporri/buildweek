@@ -82,12 +82,38 @@ function displayQuestion(question) {
 }
 
 // Avvia il quiz
+
+
+function startCountdown() {
+  let seconds = 60; 
+  let temp = document.getElementsByTagName('template')[0];
+  let countdownElement = temp.content.cloneNode(true).querySelector('#timer');
+  let countdown = document.querySelector('.countdown');
+  let svg = document.querySelector('.svg');
+  countdown.appendChild(countdownElement,svg);
+  
+  
+  
+  
+  let countdownInterval = setInterval(function() {
+  countdownElement.textContent = seconds;
+  if (seconds === 0) {
+      clearInterval(countdownInterval);
+      countdownElement.textContent = "Countdown terminato!";
+
+  } else {
+      seconds--; 
+  }
+  }, 1000); 
+}
+
 bottone.addEventListener("click", function () {
   if (checkbox.checked) {
     let temp = document.querySelector("#template1");
     let clon = temp.content.cloneNode(true);
     document.body.appendChild(clon);
     document.body.removeChild(welcome);
+    startCountdown();
     fetchQuestion();
   } else {
     error.classList.replace("error", "error-red");

@@ -3,7 +3,7 @@
 /* Welcome */
 
 body {
-  background-image: url("../assets/bg.jpg");
+  background-image: url("../images/bg.jpg");
   background-position: center;
   background-size: cover;
   color: white;
@@ -324,7 +324,6 @@ body {
   }
 }
 svg {
-  background-color: transparent;
   position: absolute;
   background-color: transparent;
   top: 50%;
@@ -343,8 +342,6 @@ svg .circle {
 
 #timer {
   position: absolute;
-  display: flex;
-  justify-content: flex-end;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
