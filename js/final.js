@@ -140,9 +140,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Calcola le percentuali
     const percentCorrect = ((correctAnswer / questions.length) * 100).toFixed(
-      2
+      0
     );
-    const percentWrong = ((wrongAnswer / questions.length) * 100).toFixed(2);
+    const percentWrong = ((wrongAnswer / questions.length) * 100).toFixed();
 
     // Seleziona e aggiorna gli elementi nel DOM per visualizzare le percentuali e il totale
     const percentualeCorrette = document.querySelector(".percentualeCorrette");
