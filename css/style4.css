@@ -63,6 +63,11 @@ button {
   border: none;
   border-radius: 2px;
   margin-top: 50px;
+  cursor: pointer;
+  transition: 400ms ease-in-out;
+}
+.button_form:hover {
+  font-size: 1.5rem;
 }
 /* inizio */
 .rating {
@@ -88,8 +93,11 @@ button {
   margin-right: 4px;
   text-align: center;
   display: inline-block;
+  cursor: pointer;
 }
-
+.rating-label:hover {
+  color: aqua;
+}
 .rating[dir="rtl"] {
   unicode-bidi: bidi-override;
 }
