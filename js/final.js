@@ -117,9 +117,10 @@ document.addEventListener("DOMContentLoaded", () => {
       responseContainer.appendChild(button);
     });
 
-    document.querySelector(".numero-domande").textContent = `Question ${
+    document.querySelector(".numero-domande").textContent = `QUESTION ${
       currentQuestionIndex + 1
-    }/${questions.length}`;
+    }`;
+    document.querySelector(".pink-num").textContent = ` / ${questions.length}`;
   }
 
   function setAnswerResult(response, question) {
