@@ -111,15 +111,35 @@ document.addEventListener("DOMContentLoaded", () => {
     new Chart(ctx, {
       type: "doughnut",
       data: {
+        labels: ["Corrette", "Errate"],
         datasets: [
           {
             data: [correctAnswer, wrongAnswer],
-            backgroundColor: ["#4caf50", "#f44336"],
+            backgroundColor: ["#00FFFF", "#C2128D"],
+            borderWidth: 1,
           },
         ],
       },
+      options: {
+        cutoutPercentage: 70,
+        legend: {
+          display: false,
+        },
+        tooltips: {
+          enabled: true,
+          callbacks: {
+            label: function (tooltipItem, data) {
+              let label = data.labels[tooltipItem.index];
+              let value =
+                data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+              return `${label}: ${value}`;
+            },
+          },
+        },
+      },
     });
   }
+
   console.log();
   bottone.addEventListener("click", function () {
     if (checkbox.checked) {
