@@ -97,13 +97,23 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function displayResults() {
-    // Rimuovi il benchmark e mostra i risultati
     document.querySelector(".benchmark")?.remove(); // Rimuovi il contenuto del quiz
 
     let template = document.querySelector("#template-results");
     let clone = template.content.cloneNode(true);
+    // Assegna una classe al clone per poterlo identificare
+    clone.firstElementChild.classList.add("results-content");
     document.body.appendChild(clone);
     initChart();
+    const rate = document.querySelector(".rate");
+    rate.addEventListener("click", function () {
+      let temp = document.querySelector(".review");
+      let clon = temp.content.cloneNode(true);
+
+      // Rimuovi il contenuto del template-results precedentemente aggiunto
+      document.querySelector(".results-content")?.remove();
+      document.body.appendChild(clon);
+    });
   }
   function displayTestResults() {
     const congrats = document.querySelector(".congrats");
