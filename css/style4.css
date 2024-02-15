@@ -7,10 +7,7 @@ body {
   box-sizing: border-box;
   font-family: "Outfit", sans-serif;
 }
-.logo img {
-  max-width: 150px;
-  padding: 30px 100px;
-}
+
 .review {
   text-align: center;
   padding: 100px;
