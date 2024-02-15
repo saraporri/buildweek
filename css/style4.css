@@ -12,6 +12,10 @@ form p {
   font-size: 1.5rem;
   padding: 5px;
   margin-top: 18px;
+  line-height: 35px;
+}
+form {
+  text-align: center;
 }
 
 .stars {
@@ -25,12 +29,16 @@ form p {
 .subtitle {
   margin-bottom: 30px;
   font-size: 1.5rem;
+  margin-top: 80px
 }
 
-input[type="text"],
-button {
+input[type="text"] {
   display: block;
   width: 50%;
+  margin: 0 auto;
+}
+button {
+  display: block;
   margin: 0 auto;
 }
 .text_area {

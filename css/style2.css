@@ -22,6 +22,7 @@ html {
   justify-content: center;
   margin-bottom: 2.5rem;
   gap: 1rem 2rem;
+  margin: 0 482px
 }
 .numero-domande,
 .pink-num {

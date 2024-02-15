@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     questionElement.textContent = question.question;
   }
 
-  function startCountdown(question, seconds = 5) {
+  function startCountdown(question, seconds = 300) {
     let countdownSvg = document.querySelector("#timer-container .circle");
     let countdownElement = document.querySelector("#timer");
 
