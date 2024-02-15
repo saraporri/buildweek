@@ -71,8 +71,8 @@ div.testResults {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 130px;
-  height: 130px;
+  width: 170px;
+  height: 170px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -94,4 +94,18 @@ div.testResults {
   font-size: 13px;
   font-weight: lighter;
   margin-top: 10px;
+}
+.happy {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)),
+    url("../images/dicaprio.gif");
+  background-position: center center;
+
+  border-radius: 50%;
+}
+.sad {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)),
+    url("../images/sad.gif");
+  background-position: center center;
+
+  border-radius: 50%;
 }

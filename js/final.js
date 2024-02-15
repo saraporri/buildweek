@@ -194,17 +194,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const congrats = document.querySelector(".congrats");
     const examResult = document.querySelector(".examResult");
     const certificate = document.querySelector(".certificate");
-
+    const testResults = document.querySelector(".testResults");
     if (correctAnswer >= questions.length * 0.6) {
       // Supponendo che il 60% sia la soglia di superamento
       congrats.innerText = "Congratulations!";
       examResult.innerText = "You passed the exam.";
       certificate.innerText =
         "We'll send you the certificate in a few minutes. Check your email (including promotions / spam folder)";
+      testResults.classList.add("happy");
     } else {
       congrats.innerText = "We are sorry.";
       examResult.innerText = "You haven't passed the exam.";
       certificate.innerText = "Please try again.";
+      testResults.classList.add("sad");
     }
   }
 
