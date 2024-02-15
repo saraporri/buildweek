@@ -220,7 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
           {
             data: [correctAnswer, wrongAnswer],
             backgroundColor: ["#00FFFF", "#C2128D"],
-            borderWidth: 1,
+            borderWidth: 0,
           },
         ],
       },
