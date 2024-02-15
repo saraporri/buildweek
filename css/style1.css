@@ -13,10 +13,7 @@ body {
 
 .logo img {
   max-width: 10%;
-}
-
-.logo {
-  margin: 30px 45px;
+  margin-left: 20px;
 }
 
 .container {
@@ -92,10 +89,10 @@ input {
   border-radius: 3px;
 }
 #checkbox:checked {
-  background-color:#d20094;
-	border: 2px solid white;
-	color: #99a1a7;
-  box-shadow: 0px 0px 14px 4px rgba(210, 0, 148,0.31);;
+  background-color: #d20094;
+  border: 2px solid white;
+  color: #99a1a7;
+  box-shadow: 0px 0px 14px 4px rgba(210, 0, 148, 0.31);
 }
 label {
   margin-left: 10px;
