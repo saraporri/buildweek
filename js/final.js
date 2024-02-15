@@ -161,8 +161,8 @@ document.addEventListener("DOMContentLoaded", () => {
     ) {
       percentualeCorrette.textContent = `${percentCorrect}%`;
       percentualeErrate.textContent = `${percentWrong}%`;
-      numQuestionsCorrect.textContent = `${correctAnswer} / ${questions.length}`;
-      numQuestionsWrong.textContent = `${wrongAnswer} / ${questions.length}`;
+      numQuestionsCorrect.textContent = `${correctAnswer}/${questions.length} questions`;
+      numQuestionsWrong.textContent = `${wrongAnswer}/${questions.length} questions`;
     }
 
     initChart();

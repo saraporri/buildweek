@@ -86,3 +86,12 @@ div.testResults {
   max-width: 600px;
   margin: 0 auto;
 }
+
+.examResult {
+  color: #00ffff;
+}
+.certificate {
+  font-size: 13px;
+  font-weight: lighter;
+  margin-top: 10px;
+}
