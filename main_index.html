@@ -81,20 +81,24 @@
           <div class="summary">The summary of your answers:</div>
         </div>
         <div class="stats">
-          <div class="correct">
+          <div class="correct col">
             <div class="correct-sinistra">
               <div class="correct-wrong">Correct</div>
               <div class="percentualeCorrette"></div>
               <div class="num-questions"></div>
             </div>
           </div>
-          <canvas id="canvas" class="canvas"></canvas>
-          <div class="testResults">
-            <div class="congrats bold"></div>
-            <div class="examResult bold"></div>
-            <p class="certificate"></p>
+          <div class="col">
+            <div class="chart-container">
+              <canvas id="canvas" class="canvas"></canvas>
+              <div class="testResults">
+                <div class="congrats bold"></div>
+                <div class="examResult bold"></div>
+                <p class="certificate"></p>
+              </div>
+            </div>
           </div>
-          <div class="wrong">
+          <div class="wrong col">
             <div class="wrong-destra">
               <div class="correct-wrong">Wrong</div>
               <div class="percentualeErrate"></div>
@@ -163,5 +167,6 @@
 </template>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="./js/test_js.js"></script>
+    <!-- <script src="./js/main.js"></script> -->
   </body>
 </html>

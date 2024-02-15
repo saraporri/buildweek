@@ -13,19 +13,23 @@
   font-weight: lighter;
 }
 .stats {
-  display: inline-flex;
+  display: flex;
   text-align: center;
-  margin: 2em 0;
+  margin: 2em auto;
   line-height: 1;
+  width: 62%;
+}
+.stats .col {
+  flex-grow: 1;
 }
 .correct-wrong {
   font-size: 3.2em;
 }
 .correct {
-  margin-top: 10vh
+  margin-top: 10vh;
 }
 .wrong {
-  margin-top: 10vh
+  margin-top: 10vh;
 }
 .num-questions {
   font-size: 1.2em;
@@ -61,7 +65,24 @@
 .rate:hover {
   box-shadow: 0 0 15px #402570, 0 0 15px#fff;
 }
+
+div.testResults {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 130px;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.chart-container {
+  position: relative;
+}
 .canvas {
   width: 100%;
   max-width: 600px;
+  margin: 0 auto;
 }
