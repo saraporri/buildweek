@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Outfit&display=swap');
 html {
   box-sizing: border-box;
 }
@@ -11,11 +12,6 @@ html {
   max-height: 20%;
   margin-left: 4rem;
   margin-top: 2rem;
-}
-.benchmark {
-  text-align: center;
-  color: white;
-  margin: 0 7rem;
 }
 
 .domanda {
@@ -33,13 +29,6 @@ html {
   gap: 1rem 2rem;
 }
 
-.box {
-  border: 3px solid white;
-  width: 15rem;
-  border-radius: 30px;
-  padding: 1rem 0;
-  background-color: rgba(179, 177, 178, 0.12);
-}
 .benchmark h3 {
   margin-bottom: 2.5rem;
 }
@@ -70,6 +59,7 @@ body {
   text-align: center;
   color: white;
   margin: 0 7rem;
+  margin-top: 15rem
 }
 .risposta {
   display: flex;
@@ -79,8 +69,7 @@ body {
   gap: 1rem 2rem;
 }
 .box {
-  border-width: 2px;
-  border-style: solid;
+  border: 3px outset white;
   border-radius: 35px;
   min-width: 20rem;
   min-height: 1.8rem;
@@ -88,6 +77,8 @@ body {
   background-color: rgba(179, 177, 178, 0.12);
   font-family: "Inter", sans-serif;
   font-size: 16px;
+  color: white;
+
 }
 .box:hover {
   background: linear-gradient(#d20094, #900080);

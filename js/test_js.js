@@ -64,16 +64,28 @@ document.addEventListener("DOMContentLoaded", () => {
       button.onclick = () => {
         if (response === question.correct_answer) {
           correctAnswer++;
-          console.log(correctAnswer);
         } else {
           wrongAnswer++;
-          console.log(wrongAnswer);
         }
         if (currentQuestionIndex + 1 < questions.length) {
           currentQuestionIndex++;
           displayQuestion(questions[currentQuestionIndex]);
         } else {
-          displayResults(); // Chiama la funzione per visualizzare i risultati al termine delle domande
+          displayResults();
+          const percentualeCorrette = document.querySelector(
+            ".percentualeCorrette"
+          );
+          const percentualeErrate =
+            document.querySelector(".percentualeErrate");
+          percentualeCorrette.innerText = `${
+            (correctAnswer * 100) / questions.length
+          } %`; // Chiama la funzione per visualizzare i risultati al termine delle domande
+          percentualeErrate.innerText = `${
+            (wrongAnswer * 100) / questions.length
+          } %`;
+          const numeroDomande = document.querySelectorAll(".num-questions");
+          numeroDomande[0].innerText = ` ${correctAnswer}/${questions.length} questions`;
+          numeroDomande[1].innerText = `${wrongAnswer}/${questions.length} questions`;
         }
       };
       responseContainer.appendChild(button);
@@ -108,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     });
   }
-
+  console.log();
   bottone.addEventListener("click", function () {
     if (checkbox.checked) {
       fetchQuestion();

@@ -21,10 +21,20 @@
 .correct-wrong {
   font-size: 3.2em;
 }
+.correct {
+  margin-top: 10vh
+}
+.wrong {
+  margin-top: 10vh
+}
 .num-questions {
   font-size: 1.2em;
 }
-.percentuale {
+.percentualeErrate {
+  font-weight: bold;
+  font-size: 3.5em;
+}
+.percentualeCorrette {
   font-weight: bold;
   font-size: 3.5em;
 }
