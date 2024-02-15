@@ -36,15 +36,16 @@ const fetchQuestion = async () => {
 
 function startCountdown() {
   let seconds = 60;
-  
+  let temp = document.getElementsByTagName("template")[0];
   let countdownElement = document.querySelector("#timer");
-  //let animation = document.querySelector('svg .circle .animation')
+  let countdown = document.querySelector(".countdown");
+  let svg = document.querySelector(".svg");
+  countdown.appendChild(countdownElement, svg);
 
   let countdownInterval = setInterval(function () {
     countdownElement.textContent = seconds;
     if (seconds === 0) {
       clearInterval(countdownInterval);
-      
     } else {
       seconds--;
     }

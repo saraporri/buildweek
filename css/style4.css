@@ -70,7 +70,6 @@ button {
   margin: 0 auto;
   display: block;
   box-shadow: 0 0 5px #00ffff, 0 0 8px #00ffff;
-  ;
   border: none;
   border-radius: 2px;
   margin-top: 50px;
@@ -87,7 +86,7 @@ button {
 }
 
 .rating input {
-  display: none
+  display: none;
 }
 
 .rating-label {
@@ -105,11 +104,11 @@ button {
   unicode-bidi: bidi-override;
 }
 
-.rating[dir="rtl"]>input:checked~.rating-label {
+.rating[dir="rtl"] > input:checked ~ .rating-label {
   font-size: 0;
 }
 
-.rating[dir="rtl"]>input:checked~.rating-label:before {
+.rating[dir="rtl"] > input:checked ~ .rating-label:before {
   content: "\2605";
   color: aqua;
 }
@@ -140,7 +139,6 @@ button {
   font-size: 16px;
 }
 
-
 .rating-large {
   display: flex;
   justify-content: center;
@@ -152,11 +150,21 @@ button {
 }
 
 button {
-  
   background-color: #00ffff;
   color: #0c113b;
   text-transform: uppercase;
 }
 
+#canvas {
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+}
 
-#canvas{width: 100%;max-width: 600px};
+.testResults {
+  position: absolute;
+  left: 51%;
+  transform: translateX(-50%);
+  top: 57%;
+  max-width: 130px;
+}

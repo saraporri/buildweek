@@ -105,13 +105,29 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(clone);
     initChart();
   }
-
+  function displayTestResults() {
+    const congrats = document.querySelector(".congrats");
+    const examResult = document.querySelector(".examResult");
+    const certificate = document.querySelector(".certificate");
+    if (correctAnswer >= 6) {
+      congrats.innerText = "Congratulations!";
+      examResult.innerText = "You passed the exam.";
+      certificate.innerText =
+        "We'll send you the certificate in few minutes. Check your email (including promotions / spam folder)";
+    } else {
+      congrats.innerText = "We are sorry.";
+      examResult.innerText = "You haven't passed the exam.";
+      certificate.innerText = "Shame on you.";
+    }
+  }
   function initChart() {
+    displayTestResults();
+
     let ctx = document.getElementById("canvas").getContext("2d");
     new Chart(ctx, {
       type: "doughnut",
       data: {
-        labels: ["Corrette", "Errate"],
+        labels: ["Corrette", "Errate"], // Queste etichette saranno usate nei tooltip
         datasets: [
           {
             data: [correctAnswer, wrongAnswer],
@@ -123,7 +139,8 @@ document.addEventListener("DOMContentLoaded", () => {
       options: {
         cutoutPercentage: 70,
         legend: {
-          display: false,
+          // Nota: Non è sotto 'plugins' in Chart.js 2.x
+          display: false, // Nasconde la legenda
         },
         tooltips: {
           enabled: true,
@@ -140,7 +157,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  console.log();
   bottone.addEventListener("click", function () {
     if (checkbox.checked) {
       fetchQuestion();
