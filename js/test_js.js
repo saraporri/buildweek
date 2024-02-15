@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
     new Chart(ctx, {
       type: "doughnut",
       data: {
-        labels: ["Corrette", "Errate"], // Queste etichette saranno usate nei tooltip
+        labels: ["Corrette", "Errate"],
         datasets: [
           {
             data: [correctAnswer, wrongAnswer],
@@ -123,8 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
       options: {
         cutoutPercentage: 70,
         legend: {
-          // Nota: Non è sotto 'plugins' in Chart.js 2.x
-          display: false, // Nasconde la legenda
+          display: false,
         },
         tooltips: {
           enabled: true,
