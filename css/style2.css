@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Outfit&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Outfit&display=swap");
 html {
   box-sizing: border-box;
 }
@@ -36,30 +36,12 @@ h3 {
   font-size: 2rem;
   margin-top: 6.5rem;
 }
-body {
-  background-image: url("../images/bg.jpg");
-  background-size: cover;
-  max-width: 100%;
-  max-height: 100%;
-  font-family: "Outfit", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-}
-#container-logo {
-  margin-bottom: 15rem;
-}
-#container-logo img {
-  max-width: 15%;
-  max-height: 15%;
-  margin-left: 3rem;
-  margin-top: 2rem;
-}
+
 .benchmark {
   text-align: center;
   color: white;
   margin: 0 7rem;
-  margin-top: 15rem
+  margin-top: 15rem;
 }
 .risposta {
   display: flex;
@@ -78,7 +60,6 @@ body {
   font-family: "Inter", sans-serif;
   font-size: 16px;
   color: white;
-
 }
 .box:hover {
   background: linear-gradient(#d20094, #900080);
