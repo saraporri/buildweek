@@ -241,6 +241,12 @@ html {
 .box.selected {
   background: linear-gradient(#d20094, #900080);
 }
+.giusta {
+  background-color: verde;
+}
+.sbagliata {
+  background-color: red;
+}
 
 h3 {
   font-size: 3rem;
