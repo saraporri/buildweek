@@ -1,4 +1,5 @@
-document.addEventListener("DOMContentLoaded", () => { // Controlla il caricamento della pagina per poi scatenare tutte le funzioni
+document.addEventListener("DOMContentLoaded", () => {
+  // Controlla il caricamento della pagina per poi scatenare tutte le funzioni
   const bottone = document.querySelector(".bottone"); // Dichiarazione variabili globali
   const checkbox = document.querySelector("#checkbox");
   const error = document.querySelector(".error");
@@ -10,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => { // Controlla il caricament
   let currentQuestionIndex = 0;
   let questions = [];
   // Chiamata URL per fetch
-  const apiUrl = 
+  const apiUrl =
     "https://opentdb.com/api.php?amount=10&category=18&difficulty=easy";
   // mischia array domande
   function shuffleArray(array) {
@@ -19,14 +20,14 @@ document.addEventListener("DOMContentLoaded", () => { // Controlla il caricament
       [array[i], array[j]] = [array[j], array[i]];
     }
   }
-  // fetch 
+  // fetch
   async function fetchQuestion() {
     try {
       const response = await fetch(apiUrl);
       if (!response.ok) {
-        throw new Error("Errore nella richiesta!"); // cattura eventuali errori nel caricamento dei dati 
+        throw new Error("Errore nella richiesta!"); // cattura eventuali errori nel caricamento dei dati
       }
-      const data = await response.json(); 
+      const data = await response.json();
       questions = data.results;
       shuffleArray(questions);
       displayBenchmark();
@@ -44,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => { // Controlla il caricament
     document.body.appendChild(clon);
     displayQuestion(questions[currentQuestionIndex]);
   }
-  // crea HTML per il benchmark 
+  // crea HTML per il benchmark
   function setupTitleHTML(question) {
     let questionElement = document.querySelector("#questionHeader");
     if (!questionElement) {
@@ -91,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => { // Controlla il caricament
     clearInterval(countdownInterval);
     countdownInterval = null;
   }
-  // 
+  //
   function displayQuestion(question) {
     setupTitleHTML(question);
     // Pulisci le risposte precedenti
@@ -99,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => { // Controlla il caricament
     responseContainer.innerHTML = "";
 
     startCountdown(question);
-    // seleziona le resposte e le mischia 
+    // seleziona le resposte e le mischia
     const responses = [...question.incorrect_answers, question.correct_answer];
     shuffleArray(responses);
     // crea i bottoni delle risposte e al click attiva altre funzioni precedentemente dichiarate
@@ -130,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => { // Controlla il caricament
   // valuta la natura della risposta e aggiunge una classe per colorarle e contarle.
   function setAnswerResult(response, question) {
     const responseButtons = document.querySelectorAll(".risposta button");
-    responseButtons.forEach((button) => { 
+    responseButtons.forEach((button) => {
       button.classList.add(
         button.textContent === question.correct_answer ? "giusta" : "sbagliata"
       );
@@ -142,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => { // Controlla il caricament
       wrongAnswer++;
     }
   }
-  // transizione tra template, ritorna i risultati del test 
+  // transizione tra template, ritorna i risultati del test
   function displayResults() {
     document.querySelector(".benchmark").remove();
     let template = document.querySelector("#template-results");
@@ -178,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => { // Controlla il caricament
     let clone = reviewTemplate.content.cloneNode(true);
     document.body.appendChild(clone);
   }
-  // ricetta per la preparazione della ciambella, buon appetito. Dho'! 
+  // ricetta per la preparazione della ciambella, buon appetito. Dho'!
   function initChart() {
     let ctx = document.getElementById("canvas").getContext("2d");
     new Chart(ctx, {
@@ -210,7 +211,7 @@ document.addEventListener("DOMContentLoaded", () => { // Controlla il caricament
       },
     });
   }
-  // ricetta per la decorazione del ripieno della ciambella. Dho'! 
+  // ricetta per la decorazione del ripieno della ciambella. Dho'!
   function displayTestResults() {
     let congrats = document.querySelector(".congrats");
     let examResult = document.querySelector(".examResult");
@@ -233,7 +234,7 @@ document.addEventListener("DOMContentLoaded", () => { // Controlla il caricament
   function endQuiz() {
     displayResults();
   }
-  // MAGIAAAAAAAA 
+  // MAGIAAAAAAAA
   bottone.addEventListener("click", function () {
     if (checkbox.checked) {
       fetchQuestion();
