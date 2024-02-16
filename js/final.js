@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
           currentQuestionIndex++;
           setTimeout(() => {
             displayQuestion(questions[currentQuestionIndex]);
-          }, 2000);
+          }, 10000);
           // displayQuestion(questions[currentQuestionIndex]);
         } else {
           endQuiz();
@@ -131,13 +131,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function setAnswerResult(response, question) {
-    let risposta = document.querySelector(".box");
+    let risposta = document.getElementsByClassName(".box");
     if (response == question.correct_answer) {
       risposta.classList.add("giusta");
       correctAnswer += 1;
+      console.log(correctAnswer + "giusta");
     } else {
       risposta.classList.add("sbagliata");
-
+      console.log(wrongAnswer + "sbagliata");
       wrongAnswer += 1;
     }
   }
