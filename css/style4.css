@@ -29,7 +29,7 @@ form {
 .subtitle {
   margin-bottom: 30px;
   font-size: 1.5rem;
-  margin-top: 80px
+  margin-top: 80px;
 }
 
 input[type="text"] {
@@ -102,6 +102,7 @@ button {
   text-align: center;
   display: inline-block;
   cursor: pointer;
+  transition: 600ms ease-in-out;
 }
 .rating-label:hover {
   color: aqua;
@@ -159,4 +160,12 @@ button {
   background-color: #00ffff;
   color: #0c113b;
   text-transform: uppercase;
+}
+
+.rating input:checked ~ label,
+.rating label:hover,
+.rating label:hover ~ label {
+  color: aqua;
+  transition: color 0.3s;
+  font-size: 55px;
 }
