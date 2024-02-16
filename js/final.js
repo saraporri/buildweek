@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
           {
             data: [correctAnswer, wrongAnswer],
             backgroundColor: ["#00FFFF", "#C2128D"],
-            borderWidth: 1,
+            borderWidth: 0,
           },
         ],
       },
@@ -216,16 +216,18 @@ document.addEventListener("DOMContentLoaded", () => {
     let congrats = document.querySelector(".congrats");
     let examResult = document.querySelector(".examResult");
     let certificate = document.querySelector(".certificate");
-
+    let testResults = document.querySelector(".testResults");
     if (correctAnswer >= questions.length * 0.6) {
       congrats.textContent = "Congratulations!";
       examResult.textContent = "You passed the exam.";
       certificate.textContent =
         "We'll send you the certificate in a few minutes. Check your email (including promotions/spam folder).";
+      testResults.classList.add("happy");
     } else {
       congrats.textContent = "We are sorry.";
       examResult.textContent = "You haven't passed the exam.";
       certificate.textContent = "Please try again.";
+      testResults.classList.add("sad");
     }
   }
 
