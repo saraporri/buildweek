@@ -31,8 +31,7 @@ body {
   font-weight: 400;
   font-style: normal;
   line-height: 0.8;
-  height: 100px;
-  margin-top: 50px;
+  margin-top: 60px;
 }
 
 ul {
@@ -54,7 +53,6 @@ ul > li {
   color: #d20094;
   font-size: 30px;
   font-weight: bold;
-  margin-top: 100px;
 }
 
 .instructions p {
@@ -62,6 +60,7 @@ ul > li {
   line-height: 26px;
   height: 60px;
   max-width: 70%;
+  margin-top: 27px;
 }
 ul > li {
   font-size: 18px;
@@ -153,6 +152,14 @@ svg .circle {
 }
 
 /* STYLE 2*/
+/* STYLE 2*/ /* STYLE 2*/
+/* STYLE 2*/ /* STYLE 2*/
+/* STYLE 2*/ /* STYLE 2*/
+/* STYLE 2*/ /* STYLE 2*/
+/* STYLE 2*/ /* STYLE 2*/
+/* STYLE 2*/ /* STYLE 2*/
+/* STYLE 2*/ /* STYLE 2*/
+/* STYLE 2*/
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Outfit&display=swap");
 html {
@@ -178,6 +185,7 @@ html {
   justify-content: center;
   margin-bottom: 2.5rem;
   gap: 1rem 2rem;
+  margin: 0 482px;
 }
 .numero-domande,
 .pink-num {
@@ -237,6 +245,15 @@ h3 {
   font-weight: bold;
 }
 
+/*STYLE 3 */
+/*STYLE 3 */
+/*STYLE 3 */
+/*STYLE 3 */
+/*STYLE 3 */
+/*STYLE 3 */
+/*STYLE 3 */
+/*STYLE 3 */
+/*STYLE 3 */
 /*STYLE 3 */
 
 .results {
@@ -352,6 +369,13 @@ div.testResults {
 }
 
 /* STYLE4 */
+/* STYLE4 */
+/* STYLE4 */
+/* STYLE4 */
+/* STYLE4 */
+/* STYLE4 */
+/* STYLE4 */
+/* STYLE4 */
 
 .review {
   text-align: center;
@@ -367,6 +391,10 @@ form p {
   font-size: 1.5rem;
   padding: 5px;
   margin-top: 18px;
+  line-height: 35px;
+}
+form {
+  text-align: center;
 }
 
 .stars {
@@ -380,12 +408,16 @@ form p {
 .subtitle {
   margin-bottom: 30px;
   font-size: 1.5rem;
+  margin-top: 80px;
 }
 
-input[type="text"],
-button {
+input[type="text"] {
   display: block;
   width: 50%;
+  margin: 0 auto;
+}
+button {
+  display: block;
   margin: 0 auto;
 }
 .text_area {
@@ -449,6 +481,7 @@ button {
   text-align: center;
   display: inline-block;
   cursor: pointer;
+  transition: 600ms ease-in-out;
 }
 .rating-label:hover {
   color: aqua;
@@ -506,4 +539,12 @@ button {
   background-color: #00ffff;
   color: #0c113b;
   text-transform: uppercase;
+}
+
+.rating input:checked ~ label,
+.rating label:hover,
+.rating label:hover ~ label {
+  color: aqua;
+  transition: color 0.3s;
+  font-size: 55px;
 }
