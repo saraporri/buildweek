@@ -104,7 +104,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     responses.forEach((response) => {
       const button = document.createElement("button");
-      button.innerText = response;
+      button.textContent = response
+        .replaceAll("&quot;", '"')
+        .replaceAll("&#039;", "'");
       button.classList.add("box", "box1");
       button.onclick = () => {
         stopCountdown(); // Fermare il countdown una volta che una risposta è stata selezionata
