@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
       button.textContent = response
         .replaceAll("&quot;", '"')
         .replaceAll("&#039;", "'");
-      button.classList.add("box", "box1");
+      button.classList.add("box");
       button.onclick = () => {
         stopCountdown();
         setAnswerResult(response, question);
@@ -126,7 +126,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelector(".numero-domande").textContent = `QUESTION ${
       currentQuestionIndex + 1
-    } / ${questions.length}`;
+    }`;
+    document.querySelector(".pink-num").textContent = ` / ${questions.length}`;
   }
 
   function setAnswerResult(response, question) {
