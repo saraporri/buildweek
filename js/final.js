@@ -1,5 +1,5 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const bottone = document.querySelector(".bottone");
+document.addEventListener("DOMContentLoaded", () => { // Controlla il caricamento della pagina per poi scatenare tutte le funzioni
+  const bottone = document.querySelector(".bottone"); // Dichiarazione variabili globali
   const checkbox = document.querySelector("#checkbox");
   const error = document.querySelector(".error");
   let welcome = document.querySelector(".container");
@@ -9,24 +9,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let currentQuestionIndex = 0;
   let questions = [];
-
-  const apiUrl =
+  // Chiamata URL per fetch
+  const apiUrl = 
     "https://opentdb.com/api.php?amount=10&category=18&difficulty=easy";
-
+  // mischia array domande
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
     }
   }
-
+  // fetch 
   async function fetchQuestion() {
     try {
       const response = await fetch(apiUrl);
       if (!response.ok) {
-        throw new Error("Errore nella richiesta!");
+        throw new Error("Errore nella richiesta!"); // cattura eventuali errori nel caricamento dei dati 
       }
-      const data = await response.json();
+      const data = await response.json(); 
       questions = data.results;
       shuffleArray(questions);
       displayBenchmark();
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Si è verificato un errore:", error);
     }
   }
-
+  // funzione per visualizzare la benchmark
   function displayBenchmark() {
     if (welcome) {
       document.body.removeChild(welcome);
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(clon);
     displayQuestion(questions[currentQuestionIndex]);
   }
-
+  // crea HTML per il benchmark 
   function setupTitleHTML(question) {
     let questionElement = document.querySelector("#questionHeader");
     if (!questionElement) {
@@ -56,18 +56,18 @@ document.addEventListener("DOMContentLoaded", () => {
       .replaceAll("&quot;", '"')
       .replaceAll("&#039;", "'");
   }
-
+  // fa partire il countdown
   function startCountdown(question, seconds = 60) {
     let countdownSvg = document.querySelector("#timer-container .circle");
     let countdownElement = document.querySelector("#timer");
 
-    const max = 500;
+    const max = 500; // variabile per manipolare SVG
     const step = max / seconds;
 
     if (countdownInterval) {
       clearInterval(countdownInterval);
     }
-
+    // decrementa il timer e verifica se il tempo  è scaduto, passa alla prossima domanda
     countdownInterval = setInterval(function () {
       if (seconds === 0) {
         clearInterval(countdownInterval);
@@ -86,23 +86,23 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }, 1000);
   }
-
+  // stoppa il countdown
   function stopCountdown() {
     clearInterval(countdownInterval);
     countdownInterval = null;
   }
-
+  // 
   function displayQuestion(question) {
     setupTitleHTML(question);
-
+    // Pulisci le risposte precedenti
     const responseContainer = document.querySelector(".risposta");
     responseContainer.innerHTML = "";
 
     startCountdown(question);
-
+    // seleziona le resposte e le mischia 
     const responses = [...question.incorrect_answers, question.correct_answer];
     shuffleArray(responses);
-
+    // crea i bottoni delle risposte e al click attiva altre funzioni precedentemente dichiarate
     responses.forEach((response) => {
       const button = document.createElement("button");
       button.textContent = response.replaceAll("&#039;", "'");
@@ -127,10 +127,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }`;
     document.querySelector(".pink-num").textContent = ` / ${questions.length}`;
   }
-
+  // valuta la natura della risposta e aggiunge una classe per colorarle e contarle.
   function setAnswerResult(response, question) {
     const responseButtons = document.querySelectorAll(".risposta button");
-    responseButtons.forEach((button) => {
+    responseButtons.forEach((button) => { 
       button.classList.add(
         button.textContent === question.correct_answer ? "giusta" : "sbagliata"
       );
@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
       wrongAnswer++;
     }
   }
-
+  // transizione tra template, ritorna i risultati del test 
   function displayResults() {
     document.querySelector(".benchmark").remove();
     let template = document.querySelector("#template-results");
@@ -166,19 +166,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     initChart();
     displayTestResults();
-
+    // al click del tasto rate scatena la funzione di review
     document.querySelector(".rate").addEventListener("click", () => {
       document.querySelector(".results").style.display = "none"; // Nasconde i risultati
       displayReview();
     });
   }
-
+  //nasconde il precedente template e visualizza il TEMPLATE del review
   function displayReview() {
     let reviewTemplate = document.querySelector("template.review");
     let clone = reviewTemplate.content.cloneNode(true);
     document.body.appendChild(clone);
   }
-
+  // ricetta per la preparazione della ciambella, buon appetito. Dho'! 
   function initChart() {
     let ctx = document.getElementById("canvas").getContext("2d");
     new Chart(ctx, {
@@ -210,7 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     });
   }
-
+  // ricetta per la decorazione del ripieno della ciambella. Dho'! 
   function displayTestResults() {
     let congrats = document.querySelector(".congrats");
     let examResult = document.querySelector(".examResult");
@@ -229,11 +229,11 @@ document.addEventListener("DOMContentLoaded", () => {
       testResults.classList.add("sad");
     }
   }
-
+  // non fa niente, dovevamo toglierlo.  Decorativo!
   function endQuiz() {
     displayResults();
   }
-
+  // MAGIAAAAAAAA 
   bottone.addEventListener("click", function () {
     if (checkbox.checked) {
       fetchQuestion();
