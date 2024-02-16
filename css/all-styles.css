@@ -143,7 +143,7 @@ svg .circle {
 
 #timer {
   position: absolute;
-  top: 24%;
+
   left: 90%;
   transform: translate(-50%, -50%);
   color: rgb(28, 178, 220);
@@ -175,7 +175,7 @@ html {
   display: block;
   margin: 0 auto;
   color: white;
-  max-width: 75%;
+  max-width: 50%;
   font-size: 1.5rem;
   height: 200px;
 }
@@ -197,10 +197,8 @@ html {
 }
 .benchmark h3 {
   margin-bottom: 2.5rem;
-}
-h3 {
-  font-size: 2rem;
-  margin-top: 6.5rem;
+  margin-bottom: 5rem;
+  font-size: 1.5em;
 }
 
 .benchmark {
@@ -209,12 +207,18 @@ h3 {
   margin: 0 7rem;
   margin-top: 15rem;
 }
+
+.quiz {
+  height: 300px;
+  flex-grow: 2;
+}
 .risposta {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 2.5rem;
-  gap: 1rem 2rem;
+  gap: 3rem 2rem;
+  flex-direction: row-reverse;
 }
 .box {
   border: 3px outset white;
@@ -234,9 +238,6 @@ h3 {
   background: linear-gradient(#d20094, #900080);
 }
 
-.benchmark h3 {
-  margin-bottom: 5rem;
-}
 h3 {
   font-size: 3rem;
   margin-top: 6.5rem;
