@@ -116,10 +116,11 @@ document.addEventListener("DOMContentLoaded", () => {
           if (currentQuestionIndex + 1 < questions.length) {
             currentQuestionIndex++;
             displayQuestion(questions[currentQuestionIndex]);
-          } else {
-            endQuiz();
-          }
-        }, 2000);
+          }, 2000);
+          // displayQuestion(questions[currentQuestionIndex]);
+        } else {
+          endQuiz();
+        }
       };
       responseContainer.appendChild(button);
     });
@@ -130,25 +131,15 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".pink-num").textContent = ` / ${questions.length}`;
   }
 
-  function setAnswerResult(selectedResponse, question) {
-    const responseButtons = document.querySelectorAll(".risposta button");
-    responseButtons.forEach((button) => {
-      if (
-        button.textContent ===
-        question.correct_answer
-          .replaceAll("&quot;", '"')
-          .replaceAll("&#039;", "'")
-      ) {
-        button.classList.add("giusta");
-      } else {
-        button.classList.add("sbagliata");
-      }
-    });
-
-    if (selectedResponse === question.correct_answer) {
-      correctAnswer++;
+  function setAnswerResult(response, question) {
+    let risposta = document.querySelector(".box");
+    if (response == question.correct_answer) {
+      risposta.classList.add("giusta");
+      correctAnswer += 1;
     } else {
-      wrongAnswer++;
+      risposta.classList.add("sbagliata");
+
+      wrongAnswer += 1;
     }
   }
 
