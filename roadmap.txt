@@ -1,0 +1,65 @@
+Build Week
+
+
+
+
+
+
+- Creazione Master : creiamo la struttura : html, js, e css => creiamo subito il primo branch
+
+- Giorno 1:
+
+-creazione della struttura html e css delle 4 pagine
+
+In CSS ci saranno delle classi e caratteristiche comuni: logo, sfondo, colori, font, stile bottoni
+
+Una volta create le 4 pagine con relativo CSS, uniremo i 4 documenti in un unico file html con il suo CSS, che verranno poi mergate al Master
+
+NB: IL PRODOTTO FINALE AVRA UN UNICO FILE HTML CON IL SUO CSS, CON DIV CHE SI ACCENDERANNO E SPEGNERANNO A SECONDA DELLA RICHIESTA
+
+Da ricordarsi: teniamo conto del tempo che ci occuperà JS, sopratutto le animazioni del timer e gli extra
+
+
+
+Resoconto prima giornata:
+
+- Siamo partiti con l'analisi dell'html e del CSS delle 4 slides, abbiamo successivamente creato un file html contenente
+tutte le 4 sezioni (ogni sezione contiene una pagina, come se fosse una index).
+
+- Dopo aver creato l'Html principale, abbiamo pushato il codice sul main, dandogli quindi una prima struttura.
+
+- Abbiamo suddiviso ogni slide in una sezione, e a gruppi abbiamo creato un foglio html specifico per quella sezione
+con il corrispondete css.
+
+- Ognuno di noi ha pushato il proprio lavoro su main-branch, in modo tale da trovarci le 4 sezioni di html e quelle di CSS,
+in modo tale da poter poi tutti insieme, unire il tutto, unificando le classi, per poi pushare l'HTML e il CSS definitivo sul mail code.
+
+
+Seconda Giornata:
+
+- Creazione di HTML e CSS da implementare nel main, contenente tutte le parti create ieri.
+
+- Brainstorming su JavaScript, analisi approfondita delle funzionalità da sviluppare
+
+- Ci suddivideremo poi in gruppi, in base alla difficoltà delle funzionalità dedicheremo più tempo e risorse.
+
+
+Cosa abbiamo afatto al giorno 2:
+
+- Creazione il countdown, da applicare poi nella main pagine
+
+- Creazione del sistema di fetch, importando i dati da un url esterno
+
+- Creazione del sistema benchmark, con tutte le sue funzionalità (da sviluppare ancora)
+
+- Creazione della schermata finale del form, implementazione delle stelle interattive
+
+
+
+Giorno 3:
+
+- Continuiamo l'implementazione del benchmark
+
+- Brainstorming sulla pagina results
+
+

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/all-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit&display=swap"
+      rel="stylesheet" />
+    <title>Benchmark</title>
+  </head>
+
+  <body>
+    <div class="logo">
+      <img src="./images/epicode_logo.png" alt="logo" />
+    </div>
+    <div class="container">
+      <h3>
+        Welcome to
+        <p class="bold">your exam</p>
+      </h3>
+      <div class="instructions">
+        <h3>Instructions</h3>
+        <p>
+          We don't expect most engineers to know the answers to all of these
+          questions, so don't worry if you're unsure of a few of them.
+        </p>
+        <ul>
+          <li>
+            Each question is
+            <span class="bold">timed</span>
+            and can only be
+            <span class="bold">answered once.</span>
+          </li>
+          <li>
+            Changing browser tab or opening other windows will
+            <span class="bold">invalidate the question.</span>
+          </li>
+          <li>
+            This exam will take approx.
+            <span class="bold">0-5 minutes.</span>
+          </li>
+        </ul>
+        <div class="foot">
+          <input type="checkbox" id="checkbox" required />
+          <label for="checkbox">
+            I promise to answer myself without help from anyone
+          </label>
+          <div class="bottone">PROCEED</div>
+        </div>
+        <div class="error">Checkbox is required</div>
+      </div>
+    </div>
+    <template id="template1">
+      <div class="benchmark">
+        <div id="timer-container">
+          <svg width="200" height="200">
+            <circle class="circle" cx="100" cy="100" r="80" />
+          </svg>
+          <div id="timer"></div>
+        </div>
+        <div class="domanda"></div>
+        <div class="quiz">
+          <div class="risposta"></div>
+        </div>
+        <div class="numero-domande"></div><p class="pink-num bold"></p>
+      </div>
+    </template>
+
+    <template id="template-results">
+      <div class="results">
+        <div class="main-div">
+          <h3 class="bold titolo">Results</h3>
+          <div class="summary">The summary of your answers:</div>
+        </div>
+        <div class="stats">
+          <div class="correct col">
+            <div class="correct-sinistra">
+              <div class="correct-wrong">Correct</div>
+              <div class="percentualeCorrette"></div>
+              <div class="num-questions"></div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="chart-container">
+              <canvas id="canvas" class="canvas"></canvas>
+              <div class="testResults">
+                <div class="congrats bold"></div>
+                <div class="examResult bold"></div>
+                <p class="certificate"></p>
+              </div>
+            </div>
+          </div>
+          <div class="wrong col">
+            <div class="wrong-destra">
+              <div class="correct-wrong">Wrong</div>
+              <div class="percentualeErrate"></div>
+              <div class="num-questions"></div>
+            </div>
+          </div>
+        </div>
+        <div class="rate" id="rate">RATE US</div>
+      </div>
+    </template>
+<template class="review">
+      <form>
+        <h3 class="bold">Tell us how it's going</h3>
+        <p>
+          From 0 to 10, how likely are you to reccomend EPICODE <br />
+          to a friend or a colleague?
+        </p>
+        
+        <div class="wrapper">
+          <form class="demoForm">
+            <div class="rating rating-large" dir="rtl">
+              <input type="radio" name="rate" id="10" value="5" />
+              <label class="rating-label" for="10">&#9734</label>
+              <input type="radio" name="rate" id="9" value="5" />
+              <label class="rating-label" for="9">&#9734</label>
+              <input type="radio" name="rate" id="8" value="5" />
+              <label class="rating-label" for="8">&#9734</label>
+              <input type="radio" name="rate" id="7" value="5" />
+              <label class="rating-label" for="7">&#9734</label>
+              <input type="radio" name="rate" id="6" value="5" />
+              <label class="rating-label" for="6">&#9734</label>
+              <input type="radio" name="rate" id="5" value="5" />
+              <label class="rating-label" for="5">&#9734</label>
+              <input type="radio" name="rate" id="4" value="4" />
+              <label class="rating-label" for="4">&#9734</label>
+              <input type="radio" name="rate" id="3" value="3" />
+              <label class="rating-label" for="3">&#9734</label>
+              <input type="radio" name="rate" id="2" value="2" />
+              <label class="rating-label" for="2">&#9734</label>
+              <input type="radio" name="rate" id="1" value="1" />
+              <label class="rating-label" for="1">&#9734</label>
+            </div>
+          </form>      
+        </div>
+        <div class="subtitle">
+          Leave us an open feedback about your experience so far
+        </div>
+        <input
+          class="text_area"
+          type="text"
+          placeholder="Write your comment here"
+        />
+        <button class="button_form">MORE INFO</button>
+      </form>
+</template>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+   <!--  <script src="./js/test_js.js"></script> -->
+    <script src="./js/final.js"></script>
+    
+  </body>
+</html>

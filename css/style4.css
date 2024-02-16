@@ -1,0 +1,171 @@
+.review {
+  text-align: center;
+  padding: 100px;
+}
+.review h3 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+form p {
+  font-size: 1.5rem;
+  padding: 5px;
+  margin-top: 18px;
+  line-height: 35px;
+}
+form {
+  text-align: center;
+}
+
+.stars {
+  padding-bottom: 30px;
+}
+
+.stars img {
+  padding: 5px;
+}
+
+.subtitle {
+  margin-bottom: 30px;
+  font-size: 1.5rem;
+  margin-top: 80px;
+}
+
+input[type="text"] {
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+}
+button {
+  display: block;
+  margin: 0 auto;
+}
+.text_area {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #b22b8a;
+  color: white;
+  margin: 0 auto 20px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  font-size: 16px;
+}
+
+.button {
+  margin: 50px 0;
+}
+
+.button_form {
+  width: 200px;
+  height: 50px;
+  margin: 20px auto;
+  font-family: inherit;
+  font-weight: 600;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 0 auto;
+  display: block;
+  box-shadow: 0 0 5px #00ffff, 0 0 8px #00ffff;
+  border: none;
+  border-radius: 2px;
+  margin-top: 50px;
+  cursor: pointer;
+  transition: 400ms ease-in-out;
+}
+.button_form:hover {
+  font-size: 1.5rem;
+}
+/* inizio */
+.rating {
+  font-size: 0;
+}
+
+.rating:after {
+  content: " ";
+  clear: both;
+  display: block;
+}
+
+.rating input {
+  display: none;
+}
+
+.rating-label {
+  height: 16px;
+  width: 16px;
+  color: #ccc;
+  font-size: 25px;
+  line-height: 16px;
+  margin-right: 4px;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  transition: 600ms ease-in-out;
+}
+.rating-label:hover {
+  color: aqua;
+}
+.rating[dir="rtl"] {
+  unicode-bidi: bidi-override;
+}
+
+.rating[dir="rtl"] > input:checked ~ .rating-label {
+  font-size: 0;
+}
+
+.rating[dir="rtl"] > input:checked ~ .rating-label:before {
+  content: "\2605";
+  color: aqua;
+}
+
+.rating-label.is-active {
+  color: aqua;
+}
+
+.rating-large .rating-label {
+  height: 24px;
+  width: 24px;
+  font-size: 50px;
+  margin-right: 8px;
+}
+
+.rating-large .rating-label:before {
+  font-size: 50px;
+}
+
+.rating-small .rating-label {
+  height: 12px;
+  width: 12px;
+  font-size: 16px;
+  margin-right: 2px;
+}
+
+.rating-small .rating-label:before {
+  font-size: 16px;
+}
+
+.rating-large {
+  display: flex;
+  justify-content: center;
+  gap: 52px;
+}
+
+.rating {
+  margin: 40px auto;
+}
+
+button {
+  background-color: #00ffff;
+  color: #0c113b;
+  text-transform: uppercase;
+}
+
+.rating input:checked ~ label,
+.rating label:hover,
+.rating label:hover ~ label {
+  color: aqua;
+  transition: color 0.3s;
+  font-size: 55px;
+}

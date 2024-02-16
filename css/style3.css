@@ -1,0 +1,111 @@
+.results {
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.titolo {
+  font-size: 3.5em;
+  font-weight: bolder;
+  margin-bottom: 0;
+}
+.summary {
+  font-size: 2em;
+  font-weight: lighter;
+}
+.stats {
+  display: flex;
+  text-align: center;
+  margin: 2em auto;
+  line-height: 1;
+  width: 62%;
+}
+.stats .col {
+  flex-grow: 1;
+}
+.correct-wrong {
+  font-size: 3.2em;
+}
+.correct {
+  margin-top: 10vh;
+}
+.wrong {
+  margin-top: 10vh;
+}
+.num-questions {
+  font-size: 1.2em;
+}
+.percentualeErrate {
+  font-weight: bold;
+  font-size: 3.5em;
+}
+.percentualeCorrette {
+  font-weight: bold;
+  font-size: 3.5em;
+}
+
+.wrong-destra {
+  text-align: right;
+}
+.correct-sinistra {
+  text-align: left;
+}
+
+.rate {
+  display: block;
+  font-size: 1.1em;
+  font-weight: bolder;
+  border: 3px solid white;
+  padding: 1em 3em;
+  margin: 0 auto;
+  cursor: pointer;
+  max-width: fit-content;
+  box-shadow: 0 0 8px #402570, 0 0 8px#402570;
+  transition: 400ms ease-in-out;
+}
+.rate:hover {
+  box-shadow: 0 0 15px #402570, 0 0 15px#fff;
+}
+
+div.testResults {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 170px;
+  height: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.chart-container {
+  position: relative;
+}
+.canvas {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.examResult {
+  color: #00ffff;
+}
+.certificate {
+  font-size: 13px;
+  font-weight: lighter;
+  margin-top: 10px;
+}
+.happy {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)),
+    url("../images/dicaprio.gif");
+  background-position: center center;
+
+  border-radius: 50%;
+}
+.sad {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)),
+    url("../images/sad.gif");
+  background-position: center center;
+
+  border-radius: 50%;
+}
