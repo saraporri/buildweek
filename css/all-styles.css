@@ -235,7 +235,7 @@ html {
   font-size: 16px;
   color: white;
 }
-.box:hover {
+.box:not(.giusta, .sbagliata):hover {
   background: linear-gradient(#d20094, #900080);
 }
 .box.selected {

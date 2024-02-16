@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const data = await response.json();
       questions = data.results;
       shuffleArray(questions);
-      displayBenchmark(); // Mostra il benchmark prima di visualizzare la prima domanda
+      displayBenchmark();
     } catch (error) {
       console.error("Si è verificato un errore:", error);
     }
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .replaceAll("&#039;", "'");
   }
 
-  function startCountdown(question, seconds = 300) {
+  function startCountdown(question, seconds = 60) {
     let countdownSvg = document.querySelector("#timer-container .circle");
     let countdownElement = document.querySelector("#timer");
 
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const responseContainer = document.querySelector(".risposta");
     responseContainer.innerHTML = "";
 
-    startCountdown(question, 60);
+    startCountdown(question);
 
     const responses = [...question.incorrect_answers, question.correct_answer];
     shuffleArray(responses);
@@ -111,41 +111,33 @@ document.addEventListener("DOMContentLoaded", () => {
       button.classList.add("box", "box1");
       button.onclick = () => {
         stopCountdown();
-        setAnswerResult(button.textContent, question);
-        setTimeout(() => {
-          if (currentQuestionIndex + 1 < questions.length) {
-            currentQuestionIndex++;
+        setAnswerResult(response, question);
+        if (currentQuestionIndex + 1 < questions.length) {
+          currentQuestionIndex++;
+          setTimeout(() => {
             displayQuestion(questions[currentQuestionIndex]);
-          } else {
-            endQuiz();
-          }
-        }, 2000);
+          }, 2000);
+        } else {
+          endQuiz();
+        }
       };
       responseContainer.appendChild(button);
     });
 
     document.querySelector(".numero-domande").textContent = `QUESTION ${
       currentQuestionIndex + 1
-    }`;
-    document.querySelector(".pink-num").textContent = ` / ${questions.length}`;
+    } / ${questions.length}`;
   }
 
-  function setAnswerResult(selectedResponse, question) {
+  function setAnswerResult(response, question) {
     const responseButtons = document.querySelectorAll(".risposta button");
     responseButtons.forEach((button) => {
-      if (
-        button.textContent ===
-        question.correct_answer
-          .replaceAll("&quot;", '"')
-          .replaceAll("&#039;", "'")
-      ) {
-        button.classList.add("giusta");
-      } else {
-        button.classList.add("sbagliata");
-      }
+      button.classList.add(
+        button.textContent === question.correct_answer ? "giusta" : "sbagliata"
+      );
     });
 
-    if (selectedResponse === question.correct_answer) {
+    if (response === question.correct_answer) {
       correctAnswer++;
     } else {
       wrongAnswer++;
@@ -158,17 +150,14 @@ document.addEventListener("DOMContentLoaded", () => {
     let clone = template.content.cloneNode(true);
     document.body.appendChild(clone);
 
-    const percentCorrect = ((correctAnswer / questions.length) * 100).toFixed(
-      0
-    );
-    const percentWrong = ((wrongAnswer / questions.length) * 100).toFixed(0);
-
-    document.querySelector(
-      ".percentualeCorrette"
-    ).textContent = `${percentCorrect}%`;
-    document.querySelector(
-      ".percentualeErrate"
-    ).textContent = `${percentWrong}%`;
+    document.querySelector(".percentualeCorrette").textContent = `${(
+      (correctAnswer / questions.length) *
+      100
+    ).toFixed(0)}%`;
+    document.querySelector(".percentualeErrate").textContent = `${(
+      (wrongAnswer / questions.length) *
+      100
+    ).toFixed(0)}%`;
     document.querySelector(
       ".stats .correct .num-questions"
     ).textContent = `${correctAnswer}/${questions.length} questions`;
@@ -178,36 +167,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     initChart();
     displayTestResults();
+
+    document.querySelector(".rate").addEventListener("click", () => {
+      document.querySelector(".results").style.display = "none"; // Nasconde i risultati
+      displayReview();
+    });
   }
 
   function displayReview() {
-    let reviewTemplate = document.querySelector("#review-template");
+    let reviewTemplate = document.querySelector("template.review");
     let clone = reviewTemplate.content.cloneNode(true);
     document.body.appendChild(clone);
   }
 
-  function displayTestResults() {
-    let congrats = document.querySelector(".congrats");
-    let examResult = document.querySelector(".examResult");
-    let certificate = document.querySelector(".certificate");
-    let testResults = document.querySelector(".testResults");
-
-    if (correctAnswer >= questions.length * 0.6) {
-      congrats.textContent = "Congratulations!";
-      examResult.textContent = "You passed the exam.";
-      certificate.textContent =
-        "We'll send you the certificate in a few minutes. Check your email (including promotions/spam folder).";
-      testResults.classList.add("happy");
-    } else {
-      congrats.textContent = "We are sorry.";
-      examResult.textContent = "You haven't passed the exam.";
-      certificate.textContent = "Please try again.";
-      testResults.classList.add("sad");
-    }
-  }
-
   function initChart() {
-    let ctx = document.getElementById("myChart").getContext("2d");
+    let ctx = document.getElementById("canvas").getContext("2d");
     new Chart(ctx, {
       type: "doughnut",
       data: {
@@ -215,23 +189,44 @@ document.addEventListener("DOMContentLoaded", () => {
         datasets: [
           {
             data: [correctAnswer, wrongAnswer],
-            backgroundColor: ["#4CAF50", "#f44336"],
-            borderColor: ["#ffffff", "#ffffff"],
-            borderWidth: 2,
+            backgroundColor: ["#00FFFF", "#C2128D"],
+            borderWidth: 1,
           },
         ],
       },
       options: {
-        responsive: true,
-        legend: {
-          position: "top",
-        },
-        animation: {
-          animateScale: true,
-          animateRotate: true,
+        cutoutPercentage: 70,
+        legend: { display: false },
+        tooltips: {
+          enabled: true,
+          callbacks: {
+            label: function (tooltipItem, data) {
+              let label = data.labels[tooltipItem.index];
+              let value =
+                data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+              return `${label}: ${value}`;
+            },
+          },
         },
       },
     });
+  }
+
+  function displayTestResults() {
+    let congrats = document.querySelector(".congrats");
+    let examResult = document.querySelector(".examResult");
+    let certificate = document.querySelector(".certificate");
+
+    if (correctAnswer >= questions.length * 0.6) {
+      congrats.textContent = "Congratulations!";
+      examResult.textContent = "You passed the exam.";
+      certificate.textContent =
+        "We'll send you the certificate in a few minutes. Check your email (including promotions/spam folder).";
+    } else {
+      congrats.textContent = "We are sorry.";
+      examResult.textContent = "You haven't passed the exam.";
+      certificate.textContent = "Please try again.";
+    }
   }
 
   function endQuiz() {
