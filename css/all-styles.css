@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Outfit&display=swap");
 body {
   background-image: url("../images/bg.jpg");
   background-position: center center;
@@ -116,10 +117,8 @@ label {
 
 /* Countdown */
 svg {
-  position: absolute;
   background-color: transparent;
-  left: 90%;
-  transform: translate(-50%, -50%) rotateZ(-90deg);
+  transform: rotateZ(-90deg);
 }
 svg .circle {
   stroke: #15d3d3;
@@ -142,13 +141,18 @@ svg .circle {
 }
 
 #timer {
+  left: 50%;
+  top: 50%;
   position: absolute;
-
-  left: 90%;
   transform: translate(-50%, -50%);
   color: rgb(28, 178, 220);
   font-size: 42px;
   font-weight: 700;
+}
+#timer-container {
+  position: absolute;
+  right: 1%;
+  top: 5%;
 }
 
 /* STYLE 2*/
@@ -223,11 +227,11 @@ html {
 .box {
   border: 3px outset white;
   border-radius: 35px;
-  min-width: 20rem;
+  width: 20rem;
   min-height: 1.8rem;
   padding: 1.5rem;
   background-color: rgba(179, 177, 178, 0.12);
-  font-family: "Inter", sans-serif;
+  font-family: inherit;
   font-size: 16px;
   color: white;
 }

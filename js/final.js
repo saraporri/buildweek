@@ -52,7 +52,9 @@ document.addEventListener("DOMContentLoaded", () => {
       questionElement.id = "questionHeader";
       document.querySelector(".domanda").appendChild(questionElement);
     }
-    questionElement.textContent = question.question;
+    questionElement.textContent = question.question
+      .replaceAll("&quot;", '"')
+      .replaceAll("&#039;", "'");
   }
 
   function startCountdown(question, seconds = 300) {
@@ -109,7 +111,10 @@ document.addEventListener("DOMContentLoaded", () => {
         setAnswerResult(response, question);
         if (currentQuestionIndex + 1 < questions.length) {
           currentQuestionIndex++;
-          displayQuestion(questions[currentQuestionIndex]);
+          setTimeout(() => {
+            displayQuestion(questions[currentQuestionIndex]);
+          }, 2000);
+          // displayQuestion(questions[currentQuestionIndex]);
         } else {
           endQuiz();
         }

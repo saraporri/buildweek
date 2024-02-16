@@ -50,7 +50,9 @@ document.addEventListener("DOMContentLoaded", () => {
       questionElement.id = "questionHeader";
       document.querySelector(".domanda").appendChild(questionElement);
     }
-    questionElement.textContent = question.question;
+    questionElement.innerText = question.question
+      .replaceAll("&quot;", "")
+      .replaceAll("&#039;", "'");
 
     const responses = [...question.incorrect_answers, question.correct_answer];
     shuffleArray(responses);
