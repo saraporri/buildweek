@@ -236,16 +236,43 @@ html {
   color: white;
 }
 .box:not(.giusta, .sbagliata):hover {
-  background: linear-gradient(#d20094, #900080);
+  background: rgb(102, 14, 76);
+  background: linear-gradient(
+    183deg,
+    rgba(102, 14, 76, 1) 5%,
+    rgba(202, 0, 146, 1) 32%,
+    rgba(202, 0, 146, 0.8576680672268908) 64%,
+    rgba(87, 12, 65, 1) 93%
+  );
 }
 .box.selected {
-  background: linear-gradient(#d20094, #900080);
+  background: rgb(102, 14, 76);
+  background: linear-gradient(
+    183deg,
+    rgba(102, 14, 76, 1) 5%,
+    rgba(202, 0, 146, 1) 32%,
+    rgba(202, 0, 146, 0.8576680672268908) 64%,
+    rgba(87, 12, 65, 1) 93%
+  );
 }
 .giusta {
-  background-color: green;
+  background: rgb(18, 106, 8);
+  background: linear-gradient(
+    41deg,
+    rgba(18, 106, 8, 1) 23%,
+    rgba(61, 203, 42, 1) 49%,
+    rgba(34, 140, 19, 1) 72%
+  );
 }
 .sbagliata {
-  background-color: red;
+  background: rgb(219, 47, 3);
+  background: linear-gradient(
+    41deg,
+    rgba(219, 47, 3, 1) 24%,
+    rgba(228, 83, 26, 1) 41%,
+    rgba(222, 83, 24, 1) 59%,
+    rgba(177, 35, 10, 1) 76%
+  );
 }
 
 h3 {
