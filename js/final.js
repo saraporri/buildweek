@@ -129,23 +129,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function setAnswerResult(response, question) {
-    const correctAnswerNormalized = question.correct_answer
-      .replaceAll("&quot;", '"')
-      .replaceAll("&#039;", "'");
-    const selectedResponseNormalized = response
-      .replaceAll("&quot;", '"')
-      .replaceAll("&#039;", "'");
-
     const responseButtons = document.querySelectorAll(".risposta button");
     responseButtons.forEach((button) => {
-      const buttonTextNormalized = button.textContent
-        .replaceAll("&quot;", '"')
-        .replaceAll("&#039;", "'");
-      if (buttonTextNormalized === correctAnswerNormalized) {
-        button.classList.add("giusta");
-      } else {
-        button.classList.add("sbagliata");
-      }
+      button.classList.add(
+        button.textContent === question.correct_answer ? "giusta" : "sbagliata"
+      );
     });
 
     if (response === question.correct_answer) {
