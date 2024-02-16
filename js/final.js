@@ -105,9 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     responses.forEach((response) => {
       const button = document.createElement("button");
-      button.textContent = response
-        .replaceAll("&quot;", '"')
-        .replaceAll("&#039;", "'");
+      button.textContent = response.replaceAll("&#039;", "'");
       button.classList.add("box");
       button.onclick = () => {
         stopCountdown();
@@ -131,11 +129,23 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function setAnswerResult(response, question) {
+    const correctAnswerNormalized = question.correct_answer
+      .replaceAll("&quot;", '"')
+      .replaceAll("&#039;", "'");
+    const selectedResponseNormalized = response
+      .replaceAll("&quot;", '"')
+      .replaceAll("&#039;", "'");
+
     const responseButtons = document.querySelectorAll(".risposta button");
     responseButtons.forEach((button) => {
-      button.classList.add(
-        button.textContent === question.correct_answer ? "giusta" : "sbagliata"
-      );
+      const buttonTextNormalized = button.textContent
+        .replaceAll("&quot;", '"')
+        .replaceAll("&#039;", "'");
+      if (buttonTextNormalized === correctAnswerNormalized) {
+        button.classList.add("giusta");
+      } else {
+        button.classList.add("sbagliata");
+      }
     });
 
     if (response === question.correct_answer) {
@@ -146,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function displayResults() {
-    document.querySelector(".benchmark")?.remove();
+    document.querySelector(".benchmark").remove();
     let template = document.querySelector("#template-results");
     let clone = template.content.cloneNode(true);
     document.body.appendChild(clone);
