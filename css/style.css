@@ -576,11 +576,13 @@ button {
 .rating {
   margin: 40px auto;
 }
-
 button {
   background-color: #00ffff;
   color: #0c113b;
   text-transform: uppercase;
+}
+button a {
+  color: #0c113b;
 }
 
 .rating input:checked ~ label,
