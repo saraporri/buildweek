@@ -65,13 +65,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const step = max / seconds;
 
     if (countdownInterval) {
-      stopCountdown();
+      clearInterval(countdownInterval);
     }
 
     countdownInterval = setInterval(function () {
-      countdownElement.textContent = seconds;
       if (seconds === 0) {
-        stopCountdown();
+        clearInterval(countdownInterval);
+        countdownInterval = null;
         if (currentQuestionIndex + 1 < questions.length) {
           currentQuestionIndex++;
           displayQuestion(questions[currentQuestionIndex]);
@@ -80,24 +80,25 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       } else {
         seconds--;
+        countdownElement.textContent = seconds;
         countdownSvg.style.strokeDashoffset = max - step * seconds;
-        countdownSvg.style.strokeDasharray = max;
+        countdownSvg.style.strokeDasharray = `${max}`;
       }
     }, 1000);
   }
 
   function stopCountdown() {
     clearInterval(countdownInterval);
-    countdownInterval = undefined;
+    countdownInterval = null;
   }
 
   function displayQuestion(question) {
     setupTitleHTML(question);
 
     const responseContainer = document.querySelector(".risposta");
-    responseContainer.innerHTML = ""; // Pulisci le risposte precedenti
+    responseContainer.innerHTML = "";
 
-    startCountdown(question);
+    startCountdown(question, 60);
 
     const responses = [...question.incorrect_answers, question.correct_answer];
     shuffleArray(responses);
@@ -109,17 +110,16 @@ document.addEventListener("DOMContentLoaded", () => {
         .replaceAll("&#039;", "'");
       button.classList.add("box", "box1");
       button.onclick = () => {
-        stopCountdown(); // Fermare il countdown una volta che una risposta è stata selezionata
-        setAnswerResult(response, question);
-        if (currentQuestionIndex + 1 < questions.length) {
-          currentQuestionIndex++;
-          setTimeout(() => {
+        stopCountdown();
+        setAnswerResult(button.textContent, question);
+        setTimeout(() => {
+          if (currentQuestionIndex + 1 < questions.length) {
+            currentQuestionIndex++;
             displayQuestion(questions[currentQuestionIndex]);
-          }, 2000);
-          // displayQuestion(questions[currentQuestionIndex]);
-        } else {
-          endQuiz();
-        }
+          } else {
+            endQuiz();
+          }
+        }, 2000);
       };
       responseContainer.appendChild(button);
     });
@@ -130,99 +130,84 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".pink-num").textContent = ` / ${questions.length}`;
   }
 
-  function setAnswerResult(response, question) {
-    let risposta = document.querySelector(".box");
-    if (response == question.correct_answer) {
-      risposta.classList.add("giusta");
-      correctAnswer += 1;
-    } else {
-      risposta.classList.add("sbagliata");
+  function setAnswerResult(selectedResponse, question) {
+    const responseButtons = document.querySelectorAll(".risposta button");
+    responseButtons.forEach((button) => {
+      if (
+        button.textContent ===
+        question.correct_answer
+          .replaceAll("&quot;", '"')
+          .replaceAll("&#039;", "'")
+      ) {
+        button.classList.add("giusta");
+      } else {
+        button.classList.add("sbagliata");
+      }
+    });
 
-      wrongAnswer += 1;
+    if (selectedResponse === question.correct_answer) {
+      correctAnswer++;
+    } else {
+      wrongAnswer++;
     }
   }
 
   function displayResults() {
-    document.querySelector(".benchmark")?.remove(); // Rimuovi il contenuto del quiz
-
+    document.querySelector(".benchmark")?.remove();
     let template = document.querySelector("#template-results");
     let clone = template.content.cloneNode(true);
     document.body.appendChild(clone);
 
-    // Calcola le percentuali
     const percentCorrect = ((correctAnswer / questions.length) * 100).toFixed(
       0
     );
-    const percentWrong = ((wrongAnswer / questions.length) * 100).toFixed();
+    const percentWrong = ((wrongAnswer / questions.length) * 100).toFixed(0);
 
-    // Seleziona e aggiorna gli elementi nel DOM per visualizzare le percentuali e il totale
-    const percentualeCorrette = document.querySelector(".percentualeCorrette");
-    const percentualeErrate = document.querySelector(".percentualeErrate");
-    const numQuestionsCorrect = document.querySelector(
+    document.querySelector(
+      ".percentualeCorrette"
+    ).textContent = `${percentCorrect}%`;
+    document.querySelector(
+      ".percentualeErrate"
+    ).textContent = `${percentWrong}%`;
+    document.querySelector(
       ".stats .correct .num-questions"
-    );
-    const numQuestionsWrong = document.querySelector(
+    ).textContent = `${correctAnswer}/${questions.length} questions`;
+    document.querySelector(
       ".stats .wrong .num-questions"
-    );
-
-    if (
-      percentualeCorrette &&
-      percentualeErrate &&
-      numQuestionsCorrect &&
-      numQuestionsWrong
-    ) {
-      percentualeCorrette.textContent = `${percentCorrect}%`;
-      percentualeErrate.textContent = `${percentWrong}%`;
-      numQuestionsCorrect.textContent = `${correctAnswer}/${questions.length} questions`;
-      numQuestionsWrong.textContent = `${wrongAnswer}/${questions.length} questions`;
-    }
+    ).textContent = `${wrongAnswer}/${questions.length} questions`;
 
     initChart();
-    displayTestResults(); // Mostra i risultati del test
-
-    // Aggiunge l'evento click al bottone "RATE US" per mostrare il template di review
-    document.querySelector(".rate").addEventListener("click", function () {
-      displayReview();
-    });
+    displayTestResults();
   }
 
   function displayReview() {
-    // Rimuovi il contenitore dei risultati
-    const resultsContainer =
-      document.body.querySelector(".results-content") ||
-      document.body.querySelector(".results");
-    if (resultsContainer) {
-      resultsContainer.remove();
-    }
-
-    // Mostra il template di review
-    let reviewTemplate = document.querySelector(".review");
+    let reviewTemplate = document.querySelector("#review-template");
     let clone = reviewTemplate.content.cloneNode(true);
     document.body.appendChild(clone);
   }
 
   function displayTestResults() {
-    const congrats = document.querySelector(".congrats");
-    const examResult = document.querySelector(".examResult");
-    const certificate = document.querySelector(".certificate");
-    const testResults = document.querySelector(".testResults");
+    let congrats = document.querySelector(".congrats");
+    let examResult = document.querySelector(".examResult");
+    let certificate = document.querySelector(".certificate");
+    let testResults = document.querySelector(".testResults");
+
     if (correctAnswer >= questions.length * 0.6) {
-      // Supponendo che il 60% sia la soglia di superamento
-      congrats.innerText = "Congratulations!";
-      examResult.innerText = "You passed the exam.";
-      certificate.innerText =
-        "We'll send you the certificate in a few minutes. Check your email (including promotions / spam folder)";
+      congrats.textContent = "Congratulations!";
+      examResult.textContent = "You passed the exam.";
+      certificate.textContent =
+        "We'll send you the certificate in a few minutes. Check your email (including promotions/spam folder).";
       testResults.classList.add("happy");
     } else {
-      congrats.innerText = "We are sorry.";
-      examResult.innerText = "You haven't passed the exam.";
-      certificate.innerText = "Please try again.";
+      congrats.textContent = "We are sorry.";
+      examResult.textContent = "You haven't passed the exam.";
+      certificate.textContent = "Please try again.";
       testResults.classList.add("sad");
     }
   }
 
   function initChart() {
-    let ctx = document.getElementById("canvas").getContext("2d");
+    let ctx = document.getElementById("myChart").getContext("2d");
     new Chart(ctx, {
       type: "doughnut",
       data: {
@@ -230,40 +215,34 @@ document.addEventListener("DOMContentLoaded", () => {
         datasets: [
           {
             data: [correctAnswer, wrongAnswer],
-            backgroundColor: ["#00FFFF", "#C2128D"],
-            borderWidth: 0,
+            backgroundColor: ["#4CAF50", "#f44336"],
+            borderColor: ["#ffffff", "#ffffff"],
+            borderWidth: 2,
           },
         ],
       },
       options: {
-        cutoutPercentage: 70,
+        responsive: true,
         legend: {
-          display: false,
+          position: "top",
         },
-        tooltips: {
-          enabled: true,
-          callbacks: {
-            label: function (tooltipItem, data) {
-              let label = data.labels[tooltipItem.index];
-              let value =
-                data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-              return `${label}: ${value}`;
-            },
-          },
+        animation: {
+          animateScale: true,
+          animateRotate: true,
         },
       },
     });
   }
 
   function endQuiz() {
-    displayResults(); // Chiamata modificata per visualizzare i risultati alla fine del quiz
+    displayResults();
   }
 
   bottone.addEventListener("click", function () {
     if (checkbox.checked) {
       fetchQuestion();
     } else {
-      error.classList.replace("error", "error-red");
+      error.classList.add("error-red");
     }
   });
 });
